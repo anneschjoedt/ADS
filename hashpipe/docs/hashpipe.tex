@@ -1,9 +1,9 @@
 \documentclass{tufte-handout}
-%\input{vc.tex}  % For version control
+\input{vc.tex}  % For version control
 \usepackage{graphicx} 
 \title{HashPipe}
 \author{}
-%\date{\GITAuthorDate, rev. \GITAbrHash}
+\date{\GITAuthorDate, rev. \GITAbrHash}
 
 \begin{document}
 \maketitle
@@ -28,7 +28,7 @@ public class HashPipe
 
 public HashPipe() // create an empty symbol table
 public int size() // return the number of elements
-public void put(String key, Value val) // put key-value pair into the table
+public void put(String key, Integer val) // put key-value pair into the table
 public Integer get(String key) // value associated with key
 public String floor(String key) // largest key less than or equal to key 
  \end{verbatim}
