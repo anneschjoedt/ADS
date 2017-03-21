@@ -50,7 +50,7 @@ To be quite precise, consider key $k$.
 The pipe's reference at height $h$ points to the smallest key $k'$ larger than $k$ of height at least $h$.
 There is a special \emph{root} pipe to the left, which you can think of as `negative infinity.' 
 The root pipe does not represent any key--value pair, no other pipe points to it, and it is at least as high as any other pipe.
-References with `nothing to the left' contain \emph{null}, shown as empty boxes in the figure.
+References with `nothing to the right' contain \emph{null}, shown as empty boxes in the figure.
 
 The number of entries (the `height' of a pipe) is given by the Java hash code of the key,
 more specifically it is the \emph{number of trailing zeros of {\tt key.hashCode()} $+1$}.
