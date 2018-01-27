@@ -126,14 +126,14 @@ In particular, we want to know at which times the following events occur:
 
 \subsection{Deliverables}
 \begin{enumerate}
-\item Your implementation of {\tt GiantBook.java}.
+\item Your implementation of  {\tt GiantBook.java} or {\tt GiantBook.py} .
 \item A modified Union--Find data structure in a separate file.
-	Call this {\tt MyUnionFind.java}. 
+	Call this {\tt MyUnionFind.java} or {\tt MyUnionFind.py}. 
 \item A project report in PDF, you are strongly encouraged to use the skeleton on the last page.
 \end{enumerate}
 
 It is important that the functionality of the union--find data
-structure and of the client ({\tt GiantBook.java}) are clearly
+structure and of the client ({\tt GiantBook.*}) are clearly
 separated.
 In particular, don't put everything in one file.
 Your extensions of the functionality of the abstract data type for union--find should be formulated in terms of meaningful, general methods that do not refer to the functionality of the client. 
@@ -170,11 +170,16 @@ You can use the {\tt StdOut.printf} method with format string
 
 \subsection{Questions}
 \begin{description}
-\item[My programme is slow.] You should be able to detect the emergence
-  of a giant component for $N=10,000,000$ within seconds on a modern
+\item[My java programme is slow.] You should be able to detect the emergence
+  of a giant component for $N=10,000,000$ within a minute on a modern
   machine.
   If not, something is wrong.
-  I am using weighted quick-union.
+  I am using weighted quick-union (with path compression).
+\item[My python programme is slow.] You should be able to detect the emergence
+  of a giant component for $N=1000,000$ within a minute on a modern
+  machine.
+  If not, something is wrong.
+  I am using weighted quick-union (with path compression).
 \item[What about those standard deviations?]
 	Reporting the result of random experiments using means and standard deviations is standard scientific practice.
   When performing experiments that involve randomness,
@@ -228,7 +233,7 @@ $N$ & $T$ & giant & (stddev) & no isolated & (stddev) & connected & (stddev)\\\m
    \num{e4} \\
   \num{e5} \\
  \num{e6} \\
-\num{e7} \\\bottomrule
+(\num{e7}) \\\bottomrule
 \end{tabular}
 \end{fullwidth}
 
