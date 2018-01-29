@@ -7,9 +7,9 @@ mario/docs/mario.pdf
 mario/docs/report.pdf
 randomqueue/docs/randomqueue.pdf
 runsort/docs/runsort.pdf
-x.gz
 *.aux
 *.log
 *.out
+*.synctex.gz
 vc.tex
 bitbucketLogin.sh
