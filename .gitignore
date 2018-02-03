@@ -13,3 +13,4 @@ runsort/docs/runsort.pdf
 *.synctex.gz
 vc.tex
 bitbucketLogin.sh
+*.zip

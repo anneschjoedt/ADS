@@ -29,6 +29,21 @@ for pdfname in $*; do
             #touch -A -01 "$basename.pdf"
         fi
     fi
+    cd ..
+    if [ -d data -o -d src ]; then
+        cd ..
+        if [ -d $basename ]; then
+            pwd
+            echo zip $basename.zip $basename/data $basename/src $basename/docs/*.{pdf,tex}
+            if [ -e ../../bitbucketLogin.sh ]; then
+                . ../../bitbucketLogin.sh
+                if [ -z "$GITSTATUS" ]; then
+                    echo uploading $basename
+                    curl -s -u $BITBUCKETLOGIN -X POST "https://api.bitbucket.org/2.0/repositories/rikj/bads-labs/downloads" -F files=@"$basename.zip"
+                fi
+            fi
+        fi
+    fi
     )
 done
                
