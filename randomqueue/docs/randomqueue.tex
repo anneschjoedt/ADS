@@ -37,7 +37,7 @@ public Iterator<Item> iterator() // return an iterator over the items in random 
 \end{verbatim}
 \end{fullwidth}
 \end{quotation}
-(For the python version, ignore the types in the above API.)
+Note that there is no notion of public, the types are slightly different and there are no generic types in python, so your RandomQueue will be a collection of Objects of arbitrary type. 
 
 Throw a {\tt RuntimeException} if the client attempts to dequeue or
 sample from an empty randomized queue.
@@ -59,13 +59,13 @@ have a chance of exactly $1/N$ to be returned by {\tt sample()} or
 
 All operations must take constant amortised time (basically, just like
 the dynamic array implementation of Stack).
-The exception is {\tt iterator()}, which takes linear time in $N$.
+The exception is {\tt iterator()}, which takes linear time in $N$ to create an iterator.
 The iterator operations {\tt hasNext()} and {\tt next()} take constant
 time.
 The {\tt RandomQueue} object and the {\tt Iterator} object take linear
-space in $N$.
+space in~$N$.
 
-The code skeleton in the {\tt src} directory contains a client method
+The code skeleton in the {\tt src} directory (in the git-repository or the linked zip-file) contains a client method
 that examines several aspects of your implementation.\footnote{It is very, very difficult to write systematic test suites for
 randomized computation. We're just goofing around, but it's better
 than nothing.}
@@ -74,10 +74,11 @@ than nothing.}
 
 If you don't know what an iterator is, read up on it [SW, pp.~138].
 (or \url{https://docs.python.org/3/library/stdtypes.html#typeiter}, perhaps you want to use the {\tt yield} construct.)
-Note that it is perfectly legal to have two (or a thousand) iterators
-over the same {\tt RandomQueue}.
+Note that it is perfectly legal to have two (or a thousand) iterators over the same {\tt RandomQueue}.
 Each iterator should use its own random order.
 Do not implement a {\tt remove()} method in the iterator.
+
+In the python version, we recommend the pattern alluded to in the code skeleton.
 
 [SW] 1.3.35 contains a useful hint for this exercise.
 
@@ -90,6 +91,9 @@ you'd be wasting your time.)
 
 If you're a good little trooper, try to ``avoid loitering'' (in the course book's terminology) by freeing
 unused references. 
+
+Similarly, in python, it is wise to restrict yourself to only use the libraries {\tt algs4.stdlib.stdrandom} (or {\tt random} if you prefer that) (and {\tt algs4.stdlib.stdstats} for the testing functionality of the skeleton). 
+ 
 \newpage 
 \section{Code skeleton}
 \small
@@ -155,6 +159,11 @@ class RandomQueue:
     def __init__(self):
         None
     ...
+    def __iter__(self):
+        # your code here:
+        # create a list mine of the objects in the intended order; the following iterates over mine
+        for x in mine:
+            yield x
 
 # This  "main method" tests your implementation. Do not change it.
 if __name__ == '__main__':
@@ -185,14 +194,10 @@ if __name__ == '__main__':
     # Let s look at the iterator. First, we make a queue of colours:
     C= RandomQueue()
     C.enqueue("red"); C.enqueue("blue"); C.enqueue("green"); C.enqueue("yellow"); 
-
     I = iter(C)
     J = iter(C)
-
     print("Two colours from first shuffle: {} {}".format(next(I),next(I)))
-    
     print("Entire second shuffle: {}".format(' '.join([i for i in J])));
-
     print("Remaining two colours from first shuffle: {} {}".format(next(I),next(I)))
 \end{verbatim}
 \end{document}
