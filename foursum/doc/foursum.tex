@@ -2,8 +2,9 @@
 \usepackage{amsmath}
 \usepackage[utf8]{inputenc}
 \usepackage{mathpazo}
-
+\usepackage{listing}
 \usepackage{graphicx}
+\usepackage{listings}
 
 \usepackage{tikz}
 \usetikzlibrary{chains}
@@ -11,14 +12,14 @@
 %\input{vc.tex}
 
 \title{Mining for Nobel}
-
+\author{Thore Husfeldt and Riko Jacob}
 \begin{document}
+\maketitle
 \begin{abstract}
   Implement a very simple algorithm in two different languages, run some experiments.
   Improve the algorithm.
 \end{abstract}
 
- \bigskip Thore Husfeldt and Rasmus Pagh.
 % Revision \GITAbrHash, \GITAuthorDate.
 
  \section{Description}
@@ -27,12 +28,11 @@
 
 \begin{description}
   \item[Exhaustive search.]
- The simplest solution is to use exhaustive search using four nested
-for loops.
-Go ahead and implement in the language that you’re comfortable in, Python or Java.
+The simplest solution is to use exhaustive search using four nested for loops.
+Go ahead and implement that in the language that you’re comfortable in, Python or Java.
 There is a code skeleton called \texttt{sol/Simple.java} or \texttt{sol/simple.py} that you must use.
-The program expects a list of $N$ integers on standard input, beginning with $N$.
-The directory \texttt{data} contains several of such lists.
+The program expects a list of $N$ integers on standard input, following the number $N$ itself.
+The directory \texttt{data} contains several of such lists for various $N$.
 
 The program must write \texttt{True} to standard output if it finds a solution, and \texttt{False} otherwise.
 
@@ -80,10 +80,13 @@ If you can figure that trick out, implement it and hand in that code instead.
     Instead, construct another program that performs all the experiments for you, and writes the results, including a time stamp of the experiment, into another file.
     There are many schools of thought about how to write that program; you can make it part of your original solution, or you can use a separate programme in a dedicated scripting language.
     Here is a minimal example in Bash, which should just work on any Unix-based computer (such as Linux or Macs):
+    \lstset{language=sh,basicstyle=\ttfamily}
     \begin{lstlisting}
-    for
+    echo `date > results-date.txt
+    for bla in gnu: 
+       `java Simple < ../data/ints-$gnu-$balf.txt >>
     \end{lstlisting}
-    More advanced solutions can compute averages, or even draw the plots for you.
+    More advanced solutions (maybe in other languages) could compute averages, or even draw the plots for you.
 \end{description}
 
 \section{Learning outcomes}
