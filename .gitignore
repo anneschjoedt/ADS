@@ -7,6 +7,7 @@ mario/docs/mario.pdf
 mario/docs/report.pdf
 randomqueue/docs/randomqueue.pdf
 runsort/docs/runsort.pdf
+foursum/docs/foursum.pdf
 *.aux
 *.log
 *.out
