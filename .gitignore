@@ -16,3 +16,4 @@ vc.tex
 bitbucketLogin.sh
 *.zip
 foursum/docs/report-foursum.pdf
+*.class
