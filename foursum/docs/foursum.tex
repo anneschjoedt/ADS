@@ -78,14 +78,16 @@ If you can figure that trick out, implement it and hand in that code instead.
 
     Instead, construct another program that performs all the experiments for you, and writes the results, including a time stamp of the experiment, into another file.
     There are many schools of thought about how to write that program; you can make it part of your original solution, or you can use a separate programme in a dedicated scripting language.
-    Here is a minimal example in Bash, which should just work on any Unix-based computer (such as Linux or Macs):
-    \lstset{language=sh,basicstyle=\ttfamily}
+    One useful program (or \texttt{builtin} in \texttt{bash}) is \texttt{time}, a simple usage would be 
     \begin{lstlisting}
-    echo `date > results-date.txt
-    for bla in gnu: 
-       `java Simple < ../data/ints-$gnu-$balf.txt >>
+      time java Simple < ../data/ints-200-2.txt
     \end{lstlisting}
+    Because of the setup on codeJudge, our programs have debugging output on \texttt{stderr}, and there is the need to ignore this when collecting experimental results into a file. 
+    The following is an example how this could look like (note that the trailing \verb+\+ continues the command on the next line):
+    \lstinputlisting{../src/simpleExp.sh}
+
     More advanced solutions (maybe in other languages) could compute averages, or even draw the plots for you.
+    One example (that turned out to be somewhat more complicated) can be found in \texttt{../src/experiment.py}.
 \end{description}
 
 \section{Learning outcomes}
