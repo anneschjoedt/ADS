@@ -10,13 +10,17 @@ lNlist = [int(30*1.41**i) for i in range(10)]
 llNlist = [int(30*1.41**i) for i in range(14)]
 
 
-# Nlist = [int(30*1.41**i) for i in range(4)]
-# lNlist = [int(30*1.41**i) for i in range(7)]
-# llNlist = [int(30*1.41**i) for i in range(11)]
+# Nlist = [int(30*1.41**i) for i in range(3)]
+# lNlist = [int(30*1.41**i) for i in range(5)]
+# llNlist = [int(30*1.41**i) for i in range(8)]
+# lNlist = Nlist
+# llNlist = Nlist
+
+print(llNlist)
 
 pathlib.Path("./Tables").mkdir() # force it to be empty - parents=True, exist_ok=True)
 
-#print(lNlist)
+
 #sys.exit()
 triple=(python, 'Triple.py')
 
@@ -38,8 +42,7 @@ fastPyth=(python, 'pythonSol/fast.py')
 dictPyth=(python, 'pythonSol/fastDict.py')
 
 def prodExp(prod,name,extra=[]):
-    runExp(prod,simpJava,tableFile='Tables/'+name+'Java.table', Nlist=[int(30*1.41**i) for i in range(12)],extra=extra)
-    return
+    runExp(prod,simpJava,tableFile='Tables/'+name+'Java.table', Nlist=llNlist,extra=extra)
     runExp(prod,fastHash,tableFile='Tables/'+name+'JavaHash.table', Nlist=llNlist,extra=extra)
     runExp(prod,dictPyth,tableFile='Tables/'+name+'PythDict.table', Nlist=llNlist,extra=extra)
     runExp(prod,simpPyth,tableFile='Tables/'+name+'PythSimp.table', Nlist=Nlist,extra=extra)
