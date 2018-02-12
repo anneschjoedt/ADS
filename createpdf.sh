@@ -35,7 +35,7 @@ for pdfname in $*; do
         if [ -d $basename ]; then
             pwd
             shopt -s nullglob
-            echo zip $basename.zip $basename/data/* $basename/src/* $basename/docs/*.{pdf,tex}
+            echo zip $basename.zip $basename/data/* $basename/src/* $basename/src/*Sol/* $basename/docs/*.{pdf,tex}
             zip $basename.zip $basename/data/* $basename/src/* $basename/docs/*.{pdf,tex}
             if [ -e bitbucketLogin.sh ]; then
                 . bitbucketLogin.sh
