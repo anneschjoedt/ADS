@@ -71,10 +71,13 @@ If you can figure that trick out, implement it and hand in that code instead.
     You are welcome to use the course library if you want to.
   \item[Measuring time.]
     On a unix system, the \texttt{time} command gives sufficiently good performance estimates, and is better than sitting with a stopwatch.
-    Both Java and Python come with better solutions, and the course libraries offer a \texttt{Stopwatch} class, you are free to use either. 
+    Both Java and Python come with better solutions; the course libraries offer a \texttt{Stopwatch} class, and Python has a handy \texttt{time} module. You are free to use either. 
+    On some modern Java systems, the compiler performs very funky optimisations behind your back, giving wildy divergent measurements for the same code on the same machine.
+    You can handle that by running time code a few times before measuring it.
+    It’s a black art.
   \item[Experiment design.]
-    Try to avoid running your experiments individually, say by starting dozens of processes from the command line (or, worse, an IDE) and writing the results into a spreadsheet to compute averages.
-    Such an approach quickly becomes both tedius and error-prone.
+    If you like doing repetitive work, you  can run your experiments individually by starting dozens of processes from the command line (or, worse, an IDE) and writing the results into a spreadsheet to compute averages.
+    However, such an approach quickly becomes both tedius and error-prone.
 
     Instead, construct another program that performs all the experiments for you, and writes the results, including a time stamp of the experiment, into another file.
     There are many schools of thought about how to write that program; you can make it part of your original solution, or you can use a separate programme in a dedicated scripting language.
