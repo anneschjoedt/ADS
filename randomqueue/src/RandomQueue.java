@@ -1,5 +1,4 @@
 import java.util.Iterator;
-import java.util.ArrayList;
 import java.util.NoSuchElementException;
     
 import edu.princeton.cs.algs4.StdIn;
@@ -12,7 +11,7 @@ public class RandomQueue<Item> implements Iterable<Item>
 {
   // Your code goes here. 
   // Mine takes ca. 60 lines, my longest method has 5 lines.
-    private ArrayList<Item> myArray;
+    
     public RandomQueue() { // create an empty random queue
     }
     public boolean isEmpty() {// is it empty?
