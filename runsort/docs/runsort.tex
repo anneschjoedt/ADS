@@ -81,17 +81,14 @@ See Fig.~\ref{fig: runsort}.
 
 
 \subsection{Requirements}
-Write an implementation of runsort in Java.
+Write an implementation of runsort in Java or Python.
 Follow the conventions used in the textbook:
 \begin{enumerate}
 \item Write a class \texttt{Runsort} that includes a method
-\texttt{public static void sort(Comparable[] a)}.
-\item You must use the method \texttt{less} from the \texttt{Example} class in Section 2.1 and  simple array manipulation.
-\footnote{Since runsort isn't an in-place sorting algorithm, we  need an auxiliary array.
-In particular, the \texttt{exch} method from the \texttt{Example} class won't be enough for our purposes.
-Just like for mergesort.}
+\texttt{public static void sort(Comparable[] a)}. 
+\item You must implement the above algorithm, in particular its way of manipulating arrays as arrays and not as lists.
 \item You are not allowed to use more than linear extra space.
-\item Your implementation should sort the lines of \texttt{stdin} lexicographically. For your convenience, there are some test cases on codeJudge. If your code does not pass these, it is considered wrong.
+\item Your implementation should sort the lines of \texttt{stdin} lexicographically. For your convenience, there are some test cases on codeJudge. If your code does not pass the tiny test cases, it is considered wrong. 
 \end{enumerate}
 
 \subsection{Tips and comments}
@@ -101,9 +98,10 @@ For instance, I used the \texttt{merge} method from Section 2.2 in the textbook 
 When reusing code, remember to be open about it (for instance, add a comment like ``from Sedgewick and Wayne, Section~2.2.'' to your code).\sidenote{Indeed, one of the goals of this exercise is to motivate you to understand what's happening in the book's mergesort code.}
 \item I solved this exercise using 30 lines of my own code, and maybe 30 lines from \texttt{MergeBU}.
 Most of the time I spent on hunting annoying index mistakes.
-\item Test your code using the client in \texttt{Example} in Section 2.1.
+\item Test your code on your own machine using the client in \texttt{Example} in Section 2.1.
 Make sure you've run your sorting algorithm on \texttt{tiny.txt} and \texttt{words3.txt}, but also on some pathological cases: empty input, 1-letter input, 2-letter input, etc.
 Also, sort something really big.
+If everything looks good, give it a try on codeJudge.
 \end{enumerate}
 
 
@@ -128,9 +126,9 @@ Implement at least one of the following fancy extensions.
 \subsection{Deliverables}
 
 \begin{enumerate}
-  \item The java source code for Runsort in a file called {\tt Runsort.java}.
+  \item The source code for Runsort in a file called {\tt Runsort.*}.
       Make sure it's perfect, following the book's conventions for clarity, brevity, indentation, variable names, comments, etc.
-  \item The java source code for your extension, in a file called {\tt FancyRunsort.java}.
+  \item The source code for your extension, in a file called {\tt FancyRunsort.*}.
   \item A brief report in PDF, telling us if the code seems to sort, what you've tested it on, and a brief description of your extension.
   You may use the report skeleton on the next page.
   \item Any input files that gave your sorting algorithm trouble.
@@ -150,7 +148,10 @@ by Alice Cooper and Bob Marley\sidenote{Complete the report by filling
 
   \subsection{Tests}
   We have run our sorting algorithm on the following inputs from the book; all were sorted:
-    {\tt tiny.txt}, {\tt words3.txt},  $[\ldots]$
+  {\tt tiny.txt}, {\tt words3.txt},  $[\ldots]$
+  The \texttt{TestTiny} tests on codeJudge were solved correctly.
+  Our implementation exceeds the timelimit on codeJudge for the test case \texttt{Test06rnd102400}.
+  On codeJudge, our algorithm is twice as fast on the \texttt{*run*} in comparison to the \texttt{*rnd*} instances.
 
   We also ran our sorting algorithm on {\tt cannotsort.txt} (included).
   The algorithm fails on this input, but we cannot find the error in our code.\sidenote{Edit or remove this paragraph if you were unable to find an input where your sorting algorithm failed.}
