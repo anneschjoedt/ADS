@@ -78,7 +78,9 @@ Apart from the symbol table methods, you are required to implement a control met
 The control method returns the key that is referenced at that position, or \emph{null}.
 For instance, in Figure 1, {\tt control("H", 3)} is ``{\tt P}'', {\tt control("H", 2)} is ``{\tt L}'', and {\tt control("P", 4)} is \emph{null}.
 \footnote{This method exists partly for testing your hand-in, but it is also meant as help to you for debugging while you write your code.}
-
+The codeJudge instance relies upon this method. 
+Your code has to at least pass the tests in \texttt{testsSmall}.
+If it does not pass the large tests in \texttt{TestsBest}, most probably your insertion algorithm does not have the required logarithmic performance.
 \subsection{Remarks}
 
 \begin{enumerate}
