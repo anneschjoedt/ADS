@@ -32,20 +32,20 @@ not symmetric.)
 \tikzset{vertex/.style={minimum size = 3pt, inner sep = 0pt, circle,fill = black}}
 
 \begin{tikzpicture}
-\node at (-1,0) {$T=0$};
+\node at (-1,0) {$R=0$};
 \foreach \a in {0,60,...,300} \node [vertex] (\a) at (\a:.3) {};
 \end{tikzpicture}
 
 \bigskip
 \begin{tikzpicture}
-\node at (-1,0) {$T=1$};
+\node at (-1,0) {$R=1$};
 \foreach \a in {0,60,...,300} \node [vertex] (\a) at (\a:.3) {};
 \draw(60)--(300);
 \end{tikzpicture}
 
 \bigskip
 \begin{tikzpicture}
-\node at (-1,0) {$T=2$};
+\node at (-1,0) {$R=2$};
 \foreach \a in {0,60,...,300} \node [vertex] (\a) at (\a:.3) {};
 \draw(60)--(300);
 \draw(0)--(120);
@@ -53,7 +53,7 @@ not symmetric.)
 
 \bigskip
 \begin{tikzpicture}
-\node at (-1,0) {$T=3$};
+\node at (-1,0) {$R=3$};
 \foreach \a in {0,60,...,300} \node [vertex] (\a) at (\a:.3) {};
 \draw(60)--(300);
 \draw(0)--(120);
@@ -62,7 +62,7 @@ not symmetric.)
 
 \bigskip
 \begin{tikzpicture}
-\node at (-1,0) {$T=4$};
+\node at (-1,0) {$R=4$};
 \foreach \a in {0,60,...,300} \node [vertex] (\a) at (\a:.3) {};
 \draw(60)--(300);
 \draw(0)--(120);
@@ -72,7 +72,7 @@ not symmetric.)
 
 \bigskip
 \begin{tikzpicture}
-\node at (-1,0) {$T=5$};
+\node at (-1,0) {$R=5$};
 \foreach \a in {0,60,...,300} \node [vertex] (\a) at (\a:.3) {};
 \draw(60)--(300);
 \draw(0)--(120);
@@ -83,7 +83,7 @@ not symmetric.)
 
 \bigskip
 \begin{tikzpicture}
-\node at (-1,0) {$T=6$};
+\node at (-1,0) {$R=6$};
 \foreach \a in {0,60,...,300} \node [vertex] (\a) at (\a:.3) {};
 \draw(60)--(300);
 \draw(0)--(120);
@@ -95,7 +95,7 @@ not symmetric.)
 
 \bigskip
 \caption{A tiny evolving network of 6 individuals.
- The \emph{nonisolated} event happens at $T=3$, the giant component emerges at $T=4$, and the whole network becomes connected at $T=6$.} 
+ The \emph{nonisolated} event happens at round $R=3$, the giant component emerges at $T=4$, and the whole network becomes connected at $R=6$.} 
 \end{marginfigure}
 
 We need some standard terminology from network theory:
@@ -104,7 +104,7 @@ Two individuals $u$ and $v$ are \emph{connected} if there is a sequence of indiv
 A \emph{connected component} is a maximal subset of connected individuals.
 
 We are interested in the behaviour of networks as they grow when links are added at random.
-In particular, we want to know at which times the following events occur:
+In particular, we want to know when following events occur:
 \begin{description}
 \item[nonisolated]
   A network becomes \emph{nonisolated} when it has no isolated individuals.
@@ -122,7 +122,10 @@ In particular, we want to know at which times the following events occur:
 
   Let me be very specific about the random model:
   In each round, select two individuals $u$ and $v$ uniformly at random.
-  If $u\neq v$ and $u$ and $v$ are not yet linked, then create a link between them.
+  If $u\neq v$, then create a link between them.
+  (It makes no difference if there was already a link between $u$ and $v$ before this round.
+  Individuals are either linked or not linked.)
+
 
 \subsection{Deliverables}
 \begin{enumerate}
@@ -136,26 +139,46 @@ It is important that the functionality of the union--find data
 structure and of the client ({\tt GiantBook.*}) are clearly
 separated.
 In particular, don't put everything in one file.
-Your extensions of the functionality of the abstract data type for union--find should be formulated in terms of meaningful, general methods that do not refer to the functionality of the client. 
+Your extensions of the functionality of the abstract data type for union--find should be formulated in terms of meaningful, general methods that do not refer to the problem domain of the client. 
 \footnote{For instance, {\tt boolean hasGiantComponent()} is not a good method for your union--find data type, because it needs to know how a giant component is defined in this particular application. On the other hand, {\tt int maxComponentSize()} would be a perfectly fine method for a union--find data type that could be useful to many other clients as well.}
+
+\section{Suggested Roadmap}
+
+I suggest you focus on first implementing the functionality of the data structure correctly and sufficiently fast.
+(Only \emph{afterwards} should you worry about performing random experiments and writing the report.)
+
+The preferred way of developing a functioning data structure is to expect input from standard input, as a text file.
+(That is much better than random input, because you can test, repeat, and debug the behaviour on the same text file.)
+Choose the same format as [SW, 1.5], such as \texttt{tinyUF.txt}, which is also what we did in the previous warm-up exercise.
+
+Your first client should read the input, and determine the rounds in which the three events happen.
+The easiest event is \emph{connected}, see the Tips below.
+
+This is the algorithmically difficult part of this exercise.
+To help you test and debug correctness and performance, the Code Judge contains a battery of tests.
+
+\medskip
+Once this is done, you can run the experiments by feeding your implementation random links.
+There two schools of thought about this.
+You can either write another program that produces random test instances to standard output and pipes them into your \texttt{GiantBook} programme's standard input.
+This way, \texttt{GiantBook} remains untouched and another programme is responsible for random number generation, computing averages, etc.
+Or you can change \texttt{GiantBook} to perform the simulation itself.
+Both approaches have merit.
 
 \section{Tips}
 
 The simplest event to simulate is \emph{connected}, because
 the Union--Find structure in the book already tells you if there is
 just one component.
-Therefore, I suggest you completely solve the whole exercise for this
-event first, including filling out the relevant table column in the report.
-The book's standard library has useful methods on page 30.
 Make sure it works correctly for very small instances ($N=10$) by
 following the computation step by step (print out what happens, check
 it by hand).
 
-After that, study the emergence of the giant component.
-This involves modifying the Union--Find implementations in the book.
+After that, detect the emergence of the giant component.
+This involves modifying the book's Union--Find implementation.
 I needed four lines of code.
 
-Finally, study the nonisolated individuals.
+Finally, check for nonisolated individuals.
 There is an obvious way of changing the Union--Find structure to detect
 the existence of isolated individuals (simply run through all elements
 and see if the size of their component is $1$), but that will probably
@@ -163,7 +186,7 @@ be too slow to be useful for large $N$.
 You need to do something that is both simpler and much faster.
 Again, I can do this in four lines of code.
 
-Oh, and one more thing: it's probably a good idea to print the values
+Oh, and one more thing for the report: it's probably a good idea to print the values
 using scientific notation, \emph{i.e.}, like {\tt 6.96e+02}.
 You can use the {\tt StdOut.printf} method with format string
 ``{\tt \%.2e}''  for that.
@@ -221,7 +244,7 @@ by Alice Cooper and Bob Marley\sidenote{Complete the report by filling
 \subsection{Results}
 
 The following table summarises our results.
-It shows the average number of random connections needed before the emergence of the giant component (``giant''), the disappearance of the last isolated individual (``no isolated''), and when the network becomes connected (``connect'').
+It shows the average number of rounds needed before the emergence of the giant component (``giant''), the disappearance of the last isolated individual (``no isolated''), and when the network becomes connected (``connect'').
 
 \medskip
 \begin{fullwidth}
@@ -239,8 +262,8 @@ $N$ & $T$ & giant & (stddev) & no isolated & (stddev) & connected & (stddev)\\\m
 
 \medskip\noindent
 Our main findings are the following:
-The first thing that happens is that $[\ldots]$ \sidenote{Replace by ``the network becomes connected'' or ``the giant component emerges'' or ``the last individual becomes nonisolated'', whatever is correct.}, which happens at a time $[\ldots]$ \sidenote{Replace by ``linear'' or ``logarithmic'' or ``quadratic'' or something like that.} in $N$.
-Perhaps surprisingly, two of the events seem to happen simultaneously, namely $[\ldots]$ and $[\ldots]$, which happen at time $[\ldots]$ in $N$.
+The first thing that happens is that $[\ldots]$ \sidenote{Replace by ``the network becomes connected'' or ``the giant component emerges'' or ``the last individual becomes nonisolated'', whatever is correct.}, which happens after a number of rounds $[\ldots]$ \sidenote{Replace by ``linear'' or ``logarithmic'' or ``quadratic'' or something like that.} in $N$.
+Perhaps surprisingly, two of the events seem to happen simultaneously, namely $[\ldots]$ and $[\ldots]$, which happen at after $[\ldots]$ rounds.
 
 
 \subsection{Implementation details}
