@@ -21,6 +21,7 @@ for pdfname in $*; do
     git log -1 --format="format:\\gdef\\GITAbrHash{%h $GITSTATUS}\\gdef\\GITAuthorDate{%ad}\\gdef\\GITAuthorName{%an}" -- "$basename.tex"  >> vc.tex
 #    echo "\\gdef\\GITAbrHash{XX}\\gdef\\GITAuthorDate{ad}\\gdef\\GITAuthorName{an}"  >> vc.tex
     while (${LTX} "$basename" ; grep -q "Rerun to get" $basename.log ) do true ; done;
+    echo
     if [ -e ../../bitbucketLogin.sh ]; then
         . ../../bitbucketLogin.sh
         if [ -z "$GITSTATUS" ]; then

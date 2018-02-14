@@ -4,6 +4,7 @@ ALLPDF=congress/docs/congress.pdf \
 	mario/docs/report.pdf \
 	giantbook/docs/giantbook.pdf \
 	randomqueue/docs/randomqueue.pdf\
+	randomqueue/docs/report.pdf\
 	gorillahash/docs/gorillahash.pdf\
 	runsort/docs/runsort.pdf\
 	foursum/docs/foursum.pdf\
