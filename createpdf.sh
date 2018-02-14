@@ -4,8 +4,8 @@
 
 set -e
 
-LTX="pdflatex -synctex=1"
-
+LTX="pdflatex -synctex=1 -interaction=batchmode"
+ZIP="zip -q"
 for pdfname in $*; do
     (
     filename="${pdfname##*/}"
@@ -29,21 +29,27 @@ for pdfname in $*; do
         #else
             #touch -m -r "$basename.tex" "$basename.pdf"
             #touch -A -01 "$basename.pdf"
+        else
+            echo uncommited changes -- not uploading $basename.pdf
         fi
     fi
     cd ..
     if [ -d data -o -d src ]; then
         cd ..
         if [ -d $basename ]; then
-            pwd
+            # pwd
+            GITSTATUS=`git status --porcelain ${basename}`
             shopt -s nullglob
-            echo zip $basename.zip $basename/data/* $basename/src/* $basename/src/*Sol/* $basename/docs/*.{pdf,tex}
-            zip $basename.zip $basename/data/* $basename/src/* $basename/src/*Sol/* $basename/docs/*.{pdf,tex}
+            echo ${ZIP} $basename.zip $basename/data/* $basename/src/* $basename/src/*Sol/* $basename/docs/*.{pdf,tex}
+            ${ZIP} $basename.zip $basename/data/* $basename/src/* $basename/src/*Sol/* $basename/docs/*.{pdf,tex}
             if [ -e bitbucketLogin.sh ]; then
                 . bitbucketLogin.sh
+                echo "$GITSTATUS"
                 if [ -z "$GITSTATUS" ]; then
                     echo uploading $basename.zip
                     curl -s -u $BITBUCKETLOGIN -X POST "https://api.bitbucket.org/2.0/repositories/rikj/bads-labs/downloads" -F files=@"$basename.zip"
+                else
+                    echo uncommited changes -- not uploading $basename.zip
                 fi
             fi
         fi
