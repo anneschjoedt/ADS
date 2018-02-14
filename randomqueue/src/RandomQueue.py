@@ -1,4 +1,4 @@
-from algs4.stdlib.stdrandom import uniform,shuffle
+from algs4.stdlib.stdrandom import uniformInt,shuffle
 from algs4.stdlib.stdstats import mean,stddev
 #from algs4.stdlib.stdio import eprint
 import sys
