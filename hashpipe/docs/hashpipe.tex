@@ -52,7 +52,7 @@ There is a special \emph{root} pipe to the left, which you can think of as `nega
 The root pipe does not represent any key--value pair, no other pipe points to it, and it is at least as high as any other pipe.
 References with `nothing to the right' contain \emph{null}, shown as empty boxes in the figure.
 
-The number of entries (the `height' of a pipe) is given by the Java hash code of the key,
+The number of entries (the `height' of a pipe) is given by the Java hash code of the key,\footnote{Note that we provide a python version of this hash-function that you can import with \texttt{from algs4.fundamentals.java\_helper import java\_string\_hash}}
 more specifically it is the \emph{number of trailing zeros of {\tt key.hashCode()} $+1$}.
 For instance, the {\tt "A".hashCode()} is 65, which is 1000001 in binary and has no trailing zeros; thus, the height of the pipe of key ``A'' is $0+1=1$.
 Similarly, the {\tt "P".hashCode()} is 80, which is 1010000 in binary and has four trailing zeros; thus, the height of the pipe of key ``P'' is $4+1=5$.
@@ -65,7 +65,8 @@ To insert a new key $k$, find its immediate predecessor (or `floor'), create a n
 \subsection{Deliverables}
 
 \begin{enumerate}
-\item {\tt HashPipe.java} and a report
+\item {\tt HashPipe.java} or {\tt HashPipe.py} 
+\item a report
 \end{enumerate}
 
 \subsection{Requirements}
@@ -126,7 +127,7 @@ However, this is a programming exercise, and we have to be able to verify your i
     \begin{quote}
     \tt Integer.numberOfTrailingZero(int i)
   \end{quote}
-  in the Java standard library.
+  in the Java standard library and \texttt{trailing zeros} in \texttt{algs4.fundamentals.java\_helper}.
 
     \item As always, follow the coding style and naming conventions in the book.
 

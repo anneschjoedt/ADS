@@ -78,7 +78,7 @@ Both AB and BA appear twice.
 For integer $d$, let $h$ be a hash function that maps the set of $k$-grams to the integers $\{0,\ldots,d-1\}$ .
 For example, in Java, you could define $h(S)$ as
 {\tt (S.hashcode() \% d) }.
-Remember that we provide a python version of this hash-function in the HashPipe assignment. 
+Note that we provide a python version of this hash-function that you can import with \texttt{from algs4.fundamentals.java\_helper import java\_string\_hash}.
 Alternatively, you can try something like \texttt{pyfasthash}\footnote{\url{https://github.com/flier/pyfasthash} and the installation instruction there.}.
 Given a string $S$, define for each $i$ with $0\leq i< d$ the value $p_i$ as the number of $k$-grams $T$ of $S$ for which $h(T) = i$.
 The resulting $d$-dimensional vector $p=(p_0,\ldots,p_{d-1})$ is called the \emph{profile} of $S$.
