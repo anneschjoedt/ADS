@@ -78,6 +78,8 @@ Both AB and BA appear twice.
 For integer $d$, let $h$ be a hash function that maps the set of $k$-grams to the integers $\{0,\ldots,d-1\}$ .
 For example, in Java, you could define $h(S)$ as
 {\tt (S.hashcode() \% d) }.
+Remember that we provide a python version of this hash-function in the HashPipe assignment. 
+Alternatively, you can try something like \texttt{pyfasthash}\footnote{\url{https://github.com/flier/pyfasthash} and the installation instruction there.}.
 Given a string $S$, define for each $i$ with $0\leq i< d$ the value $p_i$ as the number of $k$-grams $T$ of $S$ for which $h(T) = i$.
 The resulting $d$-dimensional vector $p=(p_0,\ldots,p_{d-1})$ is called the \emph{profile} of $S$.
 We then define the \emph{similarity} of two strings with profiles $p$ and $q$ as
@@ -109,7 +111,7 @@ That part you should test, even if you didn't write it yourself.\sidenote{Actual
 \subsection{Deliverables}
 
 \begin{enumerate}
-  \item The java source code for your implementation
+  \item The source code for your implementation
   \item A report in PDF.
   Use the report skeleton on the next page.
   \end{enumerate}
@@ -205,5 +207,7 @@ by Alice Cooper and Bob Marley\sidenote{Complete the report by filling
 
 \bigskip
   Similarly, our static method {\tt length(int[] p)} computes $[\ldots]$.
+  \subsection{Performance}
+  Our python7 implementation took 3 years to compute the above on our favorite computer.
 
 \end{document}
