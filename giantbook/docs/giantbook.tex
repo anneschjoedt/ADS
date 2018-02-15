@@ -146,6 +146,10 @@ Your extensions of the functionality of the abstract data type for union--find s
 
 I suggest you focus on first implementing the functionality of the data structure correctly and sufficiently fast.
 (Only \emph{afterwards} should you worry about performing random experiments and writing the report.)
+You start at a fundamental design choice: You can copy the source code of an appropriate version of the union find data structure from the books \texttt{algs4} library, and modify it to meet the requirements. 
+Alternatively, you can write a 'wrapper' around such a data structure, i.e., a new data structure that has as the main ingredient an instance of the data structure from the book, and some additional information. 
+The additional functionality is then achieved by---before and after calling the method of the original data structure---updating that extra information.
+Both approaches have their advantages and disadvantages, and this is completely your choice.
 
 The preferred way of developing a functioning data structure is to expect input from standard input, as a text file.
 (That is much better than random input, because you can test, repeat, and debug the behaviour on the same text file.)
