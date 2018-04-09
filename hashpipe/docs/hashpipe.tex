@@ -59,7 +59,7 @@ Similarly, the {\tt "P".hashCode()} is 80, which is 1010000 in binary and has fo
 
 Navigation in a Hash Pipe works very much like navigation in a search tree.
 To look for a key $k$, start at the root pipe on the highest level containing a reference.
-Depending on the comparison with the pointed-to key $k'$, proceed either down the pipe of $k$, stay at the same level but move to the pipe of $k'$.
+Depending on the comparison with the pointed-to key $k'$, proceed either down the pipe of $k$, or stay at the same level but move to the pipe of $k'$.
 To insert a new key $k$, find its immediate predecessor (or `floor'), create a new pipe of the height defined by $k$, and (and this is the tricky part) update all the references.
 
 \subsection{Deliverables}
