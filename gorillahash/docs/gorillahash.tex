@@ -71,7 +71,7 @@ If you did everything right, organisms like Human and Gorilla should be judged m
 \subsection{Similarity test based on hashing}
 
 For integer $k$, a \emph{$k$-gram} of a string is a substring of length $k$.
-Clearly, every string of length $n$ has at most $n-k$ such $k$-grams, but it may have fewer because of repetitions.
+Clearly, every string of length $n$ has at most $n-k+1$ such $k$-grams, but it may have fewer because of repetitions.
 For instance, the $2$-grams of ABABAA are AB, BA, and AA.
 Both AB and BA appear twice.
 
