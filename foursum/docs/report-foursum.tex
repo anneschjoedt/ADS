@@ -109,7 +109,7 @@ In the latter, note that the points fall nicely on a line of slope [$\dots$]\sid
 	\addplot[ color=green, mark=o,error bars/.cd,y dir=both,y explicit ] table [x index=0, y index=1, y error index=2] {Tables_done/TripleJavaHash.table};
 	\addplot[ color=brown, mark=x,error bars/.cd,y dir=both,y explicit ] table [x index=0, y index=1, y error index=2] {Tables_done/TriplePythDict.table};
 %        \addplot[color=yellow] expression[domain=8:3200] {.00009*x+.08};
-        \addplot[color=yellow] expression[domain=8:3200] {.02*exp(ln(x)/3)};
+        \addplot[color=gray] expression[domain=8:3200] {.02*exp(ln(x)/3)};
         \addplot[color=yellow] expression[domain=8:3200] {.00000018*x*x};
         \addplot[color=yellow] expression[domain=8:3200] {.0000000081*x*x*x*x};
         \addplot[color=yellow] expression[domain=8:3200] {.000000000031*x*x*x*x};
