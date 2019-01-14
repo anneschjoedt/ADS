@@ -18,9 +18,9 @@
   This exercise has the following secondary aims:
   (i) To ensure that you can handle basic input and output, including basic input parsing.
   (ii) To ensure that you can communicate with the Code Judge infrastructure we use for checking programming assignments, and handing in via the LearnIt teaching platform.
-  (This is not a mandatory assignment, so you exercise will never actually be graded.)
+  (This is not a mandatory assignment, so your exercise will never actually be graded.)
   (iii) In conjunction with the following exercise \emph{Disjoint Sets II}, to make clear that there is a difference between ``How do I do X in idiomatic Python/Java?'' and ``How do I do X efficiently?''
-  Both questions are valid, and have good answers, but they are not the same question.
+  Both questions are valid and have good answers, but they are not the same question.
   This exercise is about the first question.
   The rest of the course is about the second question.
 \end{abstract}
@@ -60,11 +60,11 @@ Maintain a family of disjoint sets, initially the singletons
 \[ \{0\},\{1\}, \ldots,\{n-1\} \]
 under the following operations:
 \begin{description}
-  \item[union]
-The \emph{union} operation takes two arguments $s$ and $t$ and creates the union of the two sets containing $s$ and $t$.
+  \item[union$(s,t)$]
+The \emph{union} operation takes two arguments $s$ and $t$ and creates the union of the two sets containing $s$ and~$t$ respectively.
 More precisely, if $s\in S$ and $t\in T$ with $S\neq T$ then $S$ and $T$ are removed from the family and replaced by the set $S\cup T$. 
     (If $S=T$  then nothing happens.)
-  \item[query]
+  \item[query$(s,t)$]
     The \emph{query} operation takes two arguments $s$ and $t$ and determines if $s$ and $t$ belong to the same set.
     More precisely, if $s\in S$ and $t\in T$ then print \texttt{yes} if $S=T$ and print \texttt{no} if $S\neq T$.
 \end{description}
@@ -94,7 +94,7 @@ For each query, a single line with \texttt{yes} or \texttt{no} as described abov
     Using these classes, write a readable, short, beautiful, idiomatic solution without regard for efficiency.
     Hand it in as \texttt{Ds1.java} or \texttt{ds1.py}.
     For this deliverable---and only this!---you can use all the native language features you want, including standard library methods that you don't understand, streams, generators, list comprehension, Python dicts and list methods, etc., even though I don't see why you'd want to do this.
-    This is the last time in this course that you can need the full language.
+    This is the last time in this course that you can use the full language.
     Relish it.
     
     There is a set of instances on CodeJudge for you to test.
@@ -102,7 +102,7 @@ For each query, a single line with \texttt{yes} or \texttt{no} as described abov
     Hand in a very brief report as a PDF, extrapolating the running time of your program to instances larger than $10000$, preferably by just finishing the skeleton in the appendix. 
 \end{description}
 
-Your program needs to be highly polished---remove unnecessary code, remove commented-out code, make sure your variable names are short and sweet, like those the book.
+Your program needs to be highly polished---remove unnecessary code, remove commented-out code, make sure your variable names are short and sweet, like those in the book.
 (For instance, \emph{do} use one-letter variable names like \texttt{S} and \texttt{T} for sets, not \texttt{theset} and \texttt{theotherset}, nor \texttt{variable} or \texttt{whatever}.)
 On the other hand, don't spend time on writing long comments or docstrings.
 Your program should be not much longer than 60 lines of Java or 30 lines of Python.
