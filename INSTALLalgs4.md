@@ -2,6 +2,11 @@
 
 ## Java:
 
+### compiler and runtime environment
+TODO
+
+### algs4 library
+
 Download algs4.jar
 
 Make sure that it is available to your javac / java
@@ -18,6 +23,10 @@ You are not required to use the booksite's programming environment DrJava. It's 
 You are strongly encouraged to write your Java code in a standalone editor and compile and run from the command line. In particular, we encourage you to not use an integrated programming environment (such as Eclipse). If you insist on using an IDE, you can do that, but you're on your own.
 
 ## Python:
+### interpreter and runtime environment
+TODO
+
+### algs4 library
 
 Look at the repository at https://github.itu.dk/algorithms/AlgorithmsInPython and install it into your local python installation by following the README.md there.
 
