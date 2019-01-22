@@ -9,8 +9,8 @@ ALLPDF=congress/docs/congress.pdf \
 	runsort/docs/runsort.pdf\
 	foursum/docs/foursum.pdf\
 	foursum/docs/report-foursum.pdf\
-	disjointsets1/docs/disjoint_sets_1.pdf\
-	disjointsets2/docs/disjoint_sets_2.pdf\
+	disjoint_sets_1/docs/disjoint_sets_1.pdf\
+	disjoint_sets_2/docs/disjoint_sets_2.pdf\
 	hashpipe/docs/hashpipe.pdf
 
 all: $(ALLPDF)
