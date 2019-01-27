@@ -13,6 +13,7 @@ for line in sys.stdin:
     if op == 'q':
         print ('yes' if S == T else 'no') 
     if op == 'u':
+        if S == T: continue
         C.remove(S)
         C.remove(T)
         C.add(S.union(T))
