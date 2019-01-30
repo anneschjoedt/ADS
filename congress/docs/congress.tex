@@ -10,7 +10,7 @@
 \usepackage{tikz}
 \usetikzlibrary{chains}
 \usetikzlibrary{decorations}
-\input{vc.tex}
+\IfFileExists{vc.tex}{\input{vc.tex}}{\newcommand\GITAuthorDate{no git info found}\newcommand\GITAbrHash{-}}  % For version control
 \tikzstyle{whitebox} =
 [     rectangle,
       inner sep = 8pt,

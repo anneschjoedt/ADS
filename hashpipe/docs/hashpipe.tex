@@ -1,5 +1,5 @@
 \documentclass{tufte-handout}
-\input{vc.tex}  % For version control
+\IfFileExists{vc.tex}{\input{vc.tex}}{\newcommand\GITAuthorDate{no git info found}\newcommand\GITAbrHash{-}}  % For version control
 \usepackage{graphicx} 
 \title{HashPipe}
 \author{}
