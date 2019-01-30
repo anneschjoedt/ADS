@@ -1,7 +1,7 @@
 \documentclass{tufte-handout}
 \usepackage{microtype}
 \usepackage{booktabs}
-\input{vc.tex}  % For version control
+\IfFileExists{vc.tex}{\input{vc.tex}}{\newcommand\GITAuthorDate{no git info found}\newcommand\GITAbrHash{-}}  % For version control
 \title{Disjoint Sets II -- Using Algs4 Union--Find}
 \author{}
 \date{\GITAuthorDate, rev. \GITAbrHash}
