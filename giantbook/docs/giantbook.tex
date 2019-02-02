@@ -160,6 +160,9 @@ The easiest event is \emph{connected}, see the Tips below.
 
 This is the algorithmically difficult part of this exercise.
 To help you test and debug correctness and performance, the Code Judge contains a battery of tests.
+The input format is the following: in the first line a single number $n$ giving the size, i.e. the universe is $0\ldots n-1$.
+The following lines are pairs of elements that receive an edge (this replaces the random source you should use).
+The output consists of 4 numbers in one line (separated by spaces), first n (redundant but useful for ploting the result), then (second) the first time the graph does not have isolated vertices anymore, then (third) the first time a giant component (with $geq n/2$ vertices) formed, then (fourth) the first time the graph is connected. Here, time is the number of edges that have been added for the event to occur, i.e., if we say that the graph of 10 nodes had a giant component for the first time at time 7 it means that we added precisely 7 edges to create a component of 6 vertices.
 
 \medskip
 Once this is done, you can run the experiments by feeding your implementation random links.
