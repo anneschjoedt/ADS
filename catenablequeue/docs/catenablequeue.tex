@@ -1,0 +1,66 @@
+\documentclass{tufte-handout}
+\usepackage{tikz}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\IfFileExists{vc.tex}{\input{vc.tex}}{\newcommand\GITAuthorDate{no git info found}\newcommand\GITAbrHash{-}}  % For version control
+
+\title{Catenable Queues}
+\author{}
+\date{\GITAuthorDate, rev. \GITAbrHash}
+
+\begin{document}
+\maketitle
+%\section{}
+%\subsection{}
+
+\begin{abstract}
+  We augment the interface of queues to allow for concatenation of two queues and the deletion of all occurrences of a particular element.
+  Discuss how the additional functionality can be implemented both for a linked-list and a resizing arrays based implementation.
+  This is a variant of Exercise~1.3.47 in Sedgewick and Wayne.
+\end{abstract}
+
+\section{Interface Catenable Queue}
+
+The following API describes a catenable queue. The first 5~items are the API of a FIFO queue from [SW] chapter 1.3, the last 2 items are the heart of this exercise.
+To emphasize the object-oriented character of the interface, we write \texttt{q} symbolizing a queue object for which the method is called.
+\begin{description}
+\item [\texttt{Queue()}] create an empty FIFO queue
+\item[\texttt{q.enqueue(item)}] add \texttt{item} to \texttt{q}
+\item[\texttt{q.dequeue()}] remove and return the least recently added item (FIFO)
+\item[\texttt{q.isEmpty()}] return the truth value 'is the queue empty'?
+\item[\texttt{q.size()}] return the number of items currently stored in the queue
+\item[\texttt{q.enqueueall(p)}] remove all elements of the FIFO queue \texttt{p} into \texttt{q}; this corresponds to concatenating the two queues into a new one \texttt{q'} = \texttt{p$\cdot$q} while destroying both arguments
+\item[\texttt{q.removall(item)}] remove all occurrences of \texttt{item} from \texttt{q}
+\end{description}
+
+\section{\textbf{Question 1}: Implementation of \texttt{removeall} using any FIFO queue}
+
+Describe how to implement the Catenable Queue API using only the interface of a FIFO queue.
+You can express the idea in plain English or you can write pseudocode (this question does not ask for an implementation in java or python).
+What is the running time of this implementation assuming that all operations of the underlying FIFO queue take constant time?
+
+\section{\textbf{Question 2}: Implementation of \texttt{enqueueall} using any FIFO queue}
+
+
+Describe how to implement the Catenable Queue API using only the interface of a FIFO queue.
+You can express the idea in plain English or you can write pseudocode (this question does not ask for an implementation in java or python).
+What is the running time of this implementation assuming that all operations of the underlying FIFO queue take constant time?
+
+\section{\textbf{Question 3}: Implementation of \texttt{enqueueall} using a linked list}
+
+Assume now that you decide to use the linked list implementation of a queue described in chapter 1.3 of Sedgewick and Wayne as the data structure.
+Describe how to implement \texttt{q.enqueuall(p)} in a way that takes constant time.
+You can express the idea in plain English or you can write pseudocode (this question does not ask for an implementation in java or python).
+
+\section{\textbf{Question 4}: Implementation of a queue using a resizing array}
+
+
+(Exercise 1.3.14 in Sedgewick and Wayne)\\
+Describe how you could implement a FIFO queue that is based on a resizing array.
+You can express the idea in plain English or you can write pseudocode (this question does not ask for an implementation in java or python).
+
+Discuss if there can be performance improvements for the \texttt{enqueuall} and \texttt{removeall} operations for this implementation (relative to the generic implementation in Question~1 and~2).
+
+
+
+\end{document}

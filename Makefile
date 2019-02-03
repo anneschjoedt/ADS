@@ -11,7 +11,8 @@ ALLPDF=congress/docs/congress.pdf \
 	foursum/docs/report-foursum.pdf\
 	disjoint_sets_1/docs/disjoint_sets_1.pdf\
 	disjoint_sets_2/docs/disjoint_sets_2.pdf\
-	hashpipe/docs/hashpipe.pdf
+	hashpipe/docs/hashpipe.pdf\
+	catenablequeue/docs/catenablequeue.pdf
 
 all: $(ALLPDF)
 
