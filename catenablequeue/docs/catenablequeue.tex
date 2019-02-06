@@ -36,7 +36,7 @@ To emphasize the object-oriented character of the interface, we write \texttt{q}
 The name ``Catenable Queue'' comes from the \texttt{enqueueall} method which allows concatenation of two queues into a new one.
 Afterwards the original queues can no longer be used.
 Assume the two queues are $p=p_1,p_2,\ldots,p_i$ and $q=q_1,q_2,\ldots,q_j$ where we remove from the left, i.e., the next item to be {dequeued} is $p_1$ and $q_1$ respectively, and we add from the right, i.e. $p_i$ and $q_j$ is the item enqueued last.
-After calling \texttt{q.enqueueall(p)}, the queue \texttt{q} stores the concatenation $p_1,p_2,\ldots,p_i,q_1,q_2,\ldots,q_j$.
+After calling \texttt{q.enqueueall(p)}, the queue \texttt{q} stores the concatenation $q_1,q_2,\ldots,q_j,p_1,p_2,\ldots,p_i$.
 This gives rise to the name (con)catenable queue.
 
 
