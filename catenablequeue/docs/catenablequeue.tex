@@ -43,16 +43,15 @@ This gives rise to the name (con)catenable queue.
 \section{\textbf{Question 1}: Implementation of \texttt{removeall} using any FIFO queue}
 
 Describe how to implement the \texttt{q.removeall(item)} method of the Catenable Queue API using only the interface of a FIFO queue.
-\emph{In this exercise, you should \textbf{not} use an array as the data structure you build upon. \textbf{Only} use a FIFO queue (however it might be implemented).}
+\emph{In this exercise, you should \textbf{not} use an array as the data structure you build upon. \textbf{Only} use the API of a FIFO queue (however it might be implemented).}
 You can express the idea in plain English or you can write pseudocode (this question does not ask for an implementation in java or python).
-How many calls to the underlying implementation of the  FIFO does your implementation use for the different operations?
 
 \section{\textbf{Question 2}: Implementation of \texttt{enqueueall} using any FIFO queue}
 
 Describe how to implement the \texttt{q.enqueueall(p)} method of the Catenable Queue API using only the interface of a FIFO queue.
 \emph{In this exercise, you should \textbf{not} use an array as the data structure you build upon. \textbf{Only} use a FIFO queue (however it might be implemented).}
 You can express the idea in plain English or you can write pseudocode (this question does not ask for an implementation in java or python).
-How many calls to the underlying implementation of the  FIFO does your implementation use for the different operations?
+How many calls to the methods of the underlying implementation of the  FIFO queue does your implementation use for the different operations?
 
 \section{\textbf{Question 3}: Implementation of \texttt{enqueueall} using a linked list}
 
@@ -60,7 +59,8 @@ Assume now that you decide to use the linked list implementation of a queue desc
 \emph{In this exercise, you should \textbf{not} use an array as the data structure you build upon.
   Use an implementation that is based on some kind of inner class node that has references to other nodes.}
 Describe how to implement \texttt{q.enqueuall(p)} in a way that takes only constantly many operations (like assigning to a variable, creating a new node object and so on).
-You can express the idea in plain English or you can write pseudocode (this question does not ask for an implementation in java or python).
+\emph{You can assume that \texttt{p} and \texttt{q} are both Catenable Queue instances based on a linked list.}
+You can express the idea in plain English or you can write pseudocode (this question does not ask for an implementation in java or python and is not about defining the java interfaces and classes in the right way).
 
 \section{\textbf{Question 4}: Implementation of a (catenable) queue using a resizing array}
 
