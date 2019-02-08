@@ -13,7 +13,7 @@ fi
 rm simple.table
 for n in $nn
 do
-    /usr/bin/time -f "$n %e" bash -c \
-                  "java -cp javaSol Simple <Input/Weed1_$n.in > /dev/null 2>&1" \
-                  >> simple.table  2>&1
+  /usr/bin/time -f "$n %e" bash -c \
+    "java -cp javaSol Simple <Input/Weed1_$n.in > /dev/null 2>&1" \
+    >> simple.table  2>&1
 done
