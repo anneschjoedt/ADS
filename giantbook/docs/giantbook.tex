@@ -4,7 +4,7 @@
 \usepackage{siunitx}
 \IfFileExists{vc.tex}{\input{vc.tex}}{\newcommand\GITAuthorDate{no git info found}\newcommand\GITAbrHash{-}}  % For version control
 
-\title{Giantbook}
+\title{Disjoint Sets 3 -- Network Analysis (Giantbook)}
 \author{}
 \date{\GITAuthorDate, rev. \GITAbrHash}
 
@@ -153,15 +153,17 @@ Both approaches have their advantages and disadvantages, and this is completely 
 
 The preferred way of developing a functioning data structure is to expect input from standard input, as a text file.
 (That is much better than random input, because you can test, repeat, and debug the behaviour on the same text file.)
-Choose the same format as [SW, 1.5], such as \texttt{tinyUF.txt}, which is also what we did in the previous warm-up exercise.
+Choose the same format as [SW, 1.5], such as \texttt{tinyUF.txt}, which is also what we did in the previous disjoint sets exercises.
 
 Your first client should read the input, and determine the rounds in which the three events happen.
 The easiest event is \emph{connected}, see the Tips below.
 
 This is the algorithmically difficult part of this exercise.
 To help you test and debug correctness and performance, the Code Judge contains a battery of tests.
+You don't have to submit anything on Code Judge, but we hope the tests there are useful to make sure that your analysis tool is working as expected.
 The input format is the following: in the first line a single number $n$ giving the size, i.e. the universe is $0\ldots n-1$.
 The following lines are pairs of elements that receive an link (this replaces the random source you should use).
+Observe that this input format is similar to the input for the previous disjoint sets exercises, just without the letter \texttt{'u'} or \texttt{'q'} because here all lines would be preceded by a \texttt{'u'}.
 The output consists of 4 numbers in one line (separated by spaces), first n (redundant but useful for ploting the result), then (second) the first time the graph does not have isolated vertices anymore, then (third) the first time a giant component (with $\geq n/2$ vertices) formed, then (fourth) the first time the graph is connected.
 Here, time is the number of links that have been added for the event to occur, i.e., if we say that the graph of 10 nodes had a giant component for the first time at time 7 it means that we added precisely 7 links to create a component of 6 vertices.
 
@@ -241,7 +243,7 @@ If you don't like the random graph models, check out the Stanford Network Analys
 For example, running your code on the (famous) Enron email network should give the same value for the size of the largest component (called WCC in the dataset statistics table.)
 
 \newpage
-\section{Giantbook Report}
+\section{Disjoint Sets 3 -- Network Analysis -- Report}
 
 
 by Alice Cooper and Bob Marley\sidenote{Complete the report by filling
