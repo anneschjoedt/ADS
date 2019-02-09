@@ -44,7 +44,7 @@ Report the fastest observed time, the slowest, and the average.
 You probably won’t be able to handle the larger inputs---don’t report experiments that take more than a few minutes.
 Plot the result using both a standard and a log-log plot.
 
-\item[Exhaustive search in a different language.]
+\item[\emph{Optional} Exhaustive search in a different language.]
   Do the same as above, but in the other language.
   This may involve installing compiler or a run-time environment, figuring out where the semicolons or brackets go (or don’t go) and other annoyances.
   Compare the running times of the two implementations of exhaustive search in the different languages.
@@ -61,13 +61,24 @@ Plot the result using both a standard and a log-log plot.
 If you can figure that trick out, implement it and hand in that code instead.
 \end{description}
 
+\section{Deliverable}
+\begin{description}
+  \item[Programs] Implementation of ``Exhaustive search'' and ``Faster'' in your standard programming language (java or python3).
+  \item[Optional Program 1] Implementation of ``Exhaustive search''  in the other programming language (python2 is just as good).
+  \item[Optional Program 2] Implementation of your self designed even faster algorithm.
+  \item[Report.]
+    Hand in a very brief report as a PDF, preferably by just finishing the skeleton in \texttt{report-foursum.tex} in the git-repository or zip-archive. 
+\end{description}
+All programs should be uploaded to codeJudge and submitted on learnit as a zip-archive.
+Please refer to  one successful submission on codeJudge (by time and id) in your report.
+
 \section{Tips and comments}
 
 \begin{description}
   \item[Java types.] The integers in the input files are very large, and will not fit into the Java datatypes \texttt{int} or \texttt{Integer}.
     Use \texttt{Long} instead.
     Do not worry about overflow.
-  \item[Python dialect.] You can use Python 2 (which may be already installed on your computer) or Python 3 (remember that the library of the course is written in python3).
+  \item[Python dialect.] You can use Python~2 (which may be already installed on your computer) or Python~3 (remember that the library of the course is written in python3).
   \item[Course libraries.]
     In this exercise (and this exercise \emph{only}) you are \emph{not} required to use the course libraries, say for input/output.
     This is because it is too much overhead to ask students in language $x$ to install the libraries for language $y$.

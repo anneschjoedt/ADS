@@ -1,5 +1,4 @@
 #!/bin/bash
-
 nn="100 200 400 800"
 javac Weed.java
 if [ ! -d Input ]
