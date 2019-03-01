@@ -18,7 +18,7 @@
 \renewcommand{\theenumi}{\Alph{enumi}}
 
 \title{Strange Stack}
-\author{}
+\author{Riko Jacob}
 \date{\GITAuthorDate, rev. \GITAbrHash}
 
 \begin{document}
@@ -26,11 +26,15 @@
 
 \section{\textbf{Description}}
 This assignment is an exam question about understanding a given piece of code.
+The points for the different parts of the questions are irrelevant for the grading of the assignment, they are merely for you orientation the weights in the exam.
+In the exam situation, you will have to answer this kind of question \textbf{without access to a computer}, so we strongly suggest that you don't cheat yourself and solve the questions with only pen and paper.
+Observe that Question (f) is almost pointless if you have a computer to execute the code, and is hence not relevant for passing the assignment.
 
 \section{\textbf{Deliverable}}
 \begin{enumerate}
 \item A PDF with your answers.
-    Please add all the names and itu-email addresses of the group members as authors.
+  Please add all the names and itu-email addresses of the group members as authors.
+  Resembling the exam situation, hand-written and scanned answers are particularly welcome.
 \end{enumerate}
 
 
@@ -84,7 +88,7 @@ public class S
     %  \draw [fill=red!5]
     %  (current page.south west) rectangle (current page.north east); 
     %\end{tikzpicture}
-    
+    \caption{\label{fig: S-python} Class {\tt S} (for Strange Stack), python version.}
     \begin{lstlisting}[basicstyle=\ttfamily,backgroundcolor=\color{white},
       frame=single,rulecolor=\color{gray!20},framesep=10pt,
       linewidth=12cm,numbers= left]
@@ -109,13 +113,12 @@ class S:
             tmp[i] = self.a[i+1]
         self.a = tmp
         self.sz -= 1
-    \end{lstlisting}
-    \caption{\label{fig: S-python} Class {\tt S} (for Strange Stack), python version.}
-  \end{figure}
+      \end{lstlisting}
+    \end{figure}
     
     The next few questions all concern the class defined in fig.~\ref{fig: S-java} and \ref{fig: S-python}.
 
-    \subsection*{(a) 1Pt} Class $S$ is some kind of fixed-capacity stack-like data structure.
+    \paragraph*{(a) (1Pt)} Class $S$ is some kind of fixed-capacity stack-like data structure.
       When an object of class $S$ runs out of capacity, it
       \begin{enumerate}
       \item forgets the oldest element.\\
@@ -124,7 +127,9 @@ class S:
       \item   return the smallest element. \\
  
       \end{enumerate}
-    \subsection*{(b) 1Pt}
+
+      \pagebreak
+    \paragraph*{(b) (1Pt)}
       What is the result of the following operations?\\
       \begin{minipage}{7cm}
       \begin{verbatim}
@@ -159,7 +164,7 @@ class S:
       \end{minipage}
        
       (Ignore whitespace such as blanks or newlines.)
-    \subsection*{(c) 1Pt}      
+    \paragraph*{(c) (1Pt)}      
       Draw the data structure after the following operations:
       (This means ``\emph{at the end} of the operations,''
         not ``\emph{after each} operation,''  so you need to draw only a single picture.
@@ -186,7 +191,7 @@ class S:
       \end{verbatim}
       \end{minipage}
 
-      \subsection*{(d) 1Pt}
+      \paragraph*{(d) (1Pt)}
       Assume I initialised an $S$-object with capacity $K$. 
       Now I perform a sequence of $N$ pushes.
       What is the worst-case (also the worst possible dependency of $K$ on $N$) running time of a single \texttt{push}?  (Choose the smallest correct estimate.)
@@ -197,7 +202,7 @@ class S:
         \item  $O(1)$. \\
       \end{enumerate} 
 
-      \subsection*{(e) 1Pt}
+      \paragraph*{(e) (1Pt)}
       Assume I initialised an $S$-object with capacity $K$. 
       Now I perform a sequence of $N$ pushes, followed by $N$ pops.
       What is the worst-case (also the worst possible dependency of $K$ on $N$) running time of a single \texttt{pop}?  (Choose the smallest correct estimate.)
@@ -207,18 +212,18 @@ class S:
         \item $O(N\log N)$. \\
         \item  $O(1)$. \\
       \end{enumerate} 
-      \subsection*{(f) 1Pt}
+      \paragraph*{(f) (1Pt)}
       Assume I initialised an $S$-object with capacity $K$. 
       Now I perform $N$ pushes and $N+1$ pops, where $N\leq K$.
-      What happens? \textbf{The java and the python version behave differently, indicate what you answer to}
+      What happens? \textbf{The java and the python version behave differently, indicate which language your answer refers to}
       \begin{enumerate}
 	\item At least one of the pushes or pops takes linear time. \\
 	\item The program aborts with a runtime error or exception. \\
 	\item The underlying array resizes to $\frac{1}{4}$ of its size. \\
-	\item The smallest element is returned. \\
+	\item The value 0 is returned. \\
       \end{enumerate} 
 
-      \subsection*{(g) 1Pt}
+      \paragraph*{(g) ((1Pt))}
      Add a method with the following signature that checks if the data structure is empty.
 
       \begin{minipage}{6cm}
@@ -235,12 +240,16 @@ class S:
       \end{verbatim}
       \end{minipage}
 
-    \emph{Don't change any other methods in class {\tt S} and don't introduce new instance variables to {\tt S}.}
+      \emph{Don't change any other methods in class {\tt S} and don't introduce new instance variables to {\tt S}.
+        Write actual code.
+        In the exam situation, minor syntax mistakes will not count heavily.}
      
-      \subsection*{(h) 1Pt}
+      \paragraph*{(h) (1Pt)}
       Extend class {\tt S} with the following signature that removes the element that was first pushed (i.e., the `oldest' element).
       The method returns nothing.
-    \emph{Don't change any other methods in class {\tt S} and don't introduce new instance variables to {\tt S}.}
+      \emph{Don't change any other methods in class {\tt S} and don't introduce new instance variables to {\tt S}.
+        Write actual code.
+        In the exam situation, minor syntax mistakes will not count heavily.}
 
     \medskip
       \begin{minipage}{6cm}
@@ -257,7 +266,7 @@ class S:
       \end{verbatim}
       \end{minipage}
 
-      \subsection*{(i) 2Pt}
+      \paragraph*{(i) (2Pt)}
       Explain how to change the implementation of the data structure so that push and pop take constant time in the worst case.
       The functionality must be unchanged.
       If $K$ is the capacity, then the constructor should take $O(K)$ time and the data structure should take $O(K)$ space.
