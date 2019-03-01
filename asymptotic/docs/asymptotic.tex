@@ -1,0 +1,123 @@
+\documentclass{tufte-handout}
+\usepackage{amsmath}
+\usepackage{mathpazo}
+
+\usepackage{tikz}
+\usetikzlibrary{chains}
+% Define style for nodes
+\tikzstyle{every node}=[circle, draw, fill=white,
+                        inner sep=0pt, minimum width=9pt,font=\footnotesize\sf]
+\tikzstyle{every picture}= [scale=.5,baseline=(current bounding box.center)]
+\usetikzlibrary{automata}
+\usetikzlibrary{patterns}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\IfFileExists{vc.tex}{\input{vc.tex}}{\newcommand\GITAuthorDate{no git info found}\newcommand\GITAbrHash{-}}  % For version control
+
+\title{Asymptotic Notation}
+\author{}
+\date {\GITAuthorDate, rev. \GITAbrHash}
+
+\begin{document}
+\maketitle
+%\section{}
+%\subsection{}
+
+\begin{abstract}
+\end{abstract}
+
+\section{\textbf{Description}}
+  This assignment is about asymptotic notation and growth analysis, with a multiple choice part and a free-text part. 
+  
+  \medskip Question 1 tests your understanding of Big O and Tilde notation with questions from a previous exam.
+  
+  \medskip Question 2 forces you to condense what you have learned about asymptotic analysis into few sentences.
+  We believe that this can help you in improving  your own understanding as well as train you in a good communication about the topic.
+  This question is very much about the journey it takes to formulate a good answer.
+  Use it constructively. Try out a few different explanations. Compare with your group members.
+  See how your understanding improves as your answer becomes more concise and more precise.
+
+\section{\textbf{Deliverable}}
+1. One PDF with your answers, including the name and ITU email of all groups members.
+
+\section{\textbf{Question 1}: from exam 170815 1a, b, c, d, e}
+\begin{description}
+    \item{a)} Which pair of functions satisfy $f(N)\sim g(N)$?
+    \begin{enumerate}
+        \item[(A)] $f(N)= 2N$ and $g(N)=N+N+N$ 
+        \item[(B)] $f(N)=2N+10 + N^2$ and $g(N)=N^2+10$ 
+        \item[(C)] $f(N)=2N^2 + N$ and $g(N)=2N^2 + N^2$ 
+        \item[(D)] $f(N)=2N^2 + N$ and $g(N)=N^2+N^3$ 
+    \end{enumerate}
+\bigskip
+    \item{b)} Which pair of functions satisfy $f(N)=O(g(N))$?
+      \begin{enumerate}
+        \item[(A)] $f(N)=17$ and $g(N)=1$
+        \item[(B)] $f(N)=(N+1)\cdot(N+1)$ and $g(N)=N\log N $ 
+        \item[(C)] $f(N)=(\log N)\cdot(\log N)$ and $g(N)=2\log N$
+        \item[(D)] $f(N)=N^5+5N$ and $g(N)=5N^4$ 
+
+      \end{enumerate}
+\bigskip
+%\pagebreak
+\item{c)} How many stars are printed?
+\begin{verbatim}
+    for (int i = 1 ; i < N; i = i+2) StdOut.print("**"); 
+\end{verbatim}
+      \begin{enumerate}
+          \item[(A)] $\sim 2\log_2 N$
+          \item[(B)] $\sim N$
+          \item[(C)] $\sim N\log N$
+          \item[(D)] $\sim\frac{1}{2}N^2$
+      \end{enumerate}
+      \medskip
+    
+\bigskip\item{d)} How many stars are printed?
+         (Choose the smallest correct estimate.)
+\begin{verbatim}
+    for (int i = 0; i < N/2; i = i+1)
+        for (int j = 1; j < N/2; j = 2*j)
+            StdOut.print("**");
+\end{verbatim}
+      \begin{enumerate}
+          \item[(A)] $O(\log N)$
+          \item[(B)] $O(N)$
+          \item[(C)] $O(N\log N)$
+          \item[(D)] $O(N^2)$
+      \end{enumerate}
+\bigskip
+\item{e)} What is the asymptotic running time of the following piece
+  of code?
+         (Choose the smallest correct estimate.)
+\begin{verbatim}
+    if (N < 1000) for (int i = 0; i < N*N; i = i+1) A[i] = A[i/2];
+    else          for (int i = 0; i < N; i = i+1)   A[i] = A[i-1000];
+\end{verbatim}
+      \begin{enumerate}
+          \item[(A)] linear in $N$
+          \item[(B)] linearithmic in $N$
+          \item[(C)] quadratic in $N$
+          \item[(D)] cubic $N$
+      \end{enumerate} 
+\end{description}
+
+\section{\textbf{Question 2}: In your own words}
+\begin{description}
+
+  \medskip\item[(a)]
+  In three lines or less, and in your own words, explain why insertion in a heap takes $O(lg N)$ operations.
+  \medskip\item[(b)]
+  In three lines or less, and in your own words, explain why the asymptotic running time of the "union" operation does not improve from Quick-Find to Quick-Union.
+    \medskip\item[(c)]
+    In three lines or less, and in your own words, explain why the alterations to Weighted-Quick-Union (from Quick-Union) makes the running time of the "union" operation run in $O(lg N)$.
+    \medskip\item[(d)]
+    In three lines or less, and in your own words, explain why insertion sort is $O(N^2)$.
+    \medskip\item[(e)]
+    In three lines or less, and in your own words, explain why insertion sort is not faster than argued for in~(d).
+    \footnote{Usually we would phrase this as ``the analysis of insertion sort in (d) is tight''}
+    \medskip\item[(f)]
+    In three lines or less, and in your own words, explain what asymptotic analysis is (in regards to algorithms).
+    \medskip\item[(g)]
+    What is the running time of finding a specific element in a heap? What about a binary search tree? In three lines or less, and in your own words, explain what is different between the two.
+\end{description}
+\end{document}
