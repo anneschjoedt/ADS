@@ -15,7 +15,7 @@
 \IfFileExists{vc.tex}{\input{vc.tex}}{\newcommand\GITAuthorDate{no git info found}\newcommand\GITAbrHash{-}}  % For version control \input{vc.tex}
 
 \title{Runsort}
-\author{Thore Husfeldt}
+\author{Thore Husfeldt (modified by Riko Jacob)}
 \date{\small Revision \GITAbrHash, \GITAuthorDate}
 
 
@@ -79,14 +79,15 @@ See Fig.~\ref{fig: runsort}.
 \caption{\label{fig: runsort}Trace of runsort}
 \end{figure*}
 
-
+\pagebreak
 \subsection{Requirements}
 Write an implementation of runsort in Java or Python.
 Follow the conventions used in the textbook:
 \begin{enumerate}
-\item Write a class \texttt{Runsort} that includes a method
-\texttt{public static void sort(Comparable[] a)}. 
+\item In java, write a class \texttt{Runsort} that includes a method \texttt{public static void sort(Comparable[] a)}.
+  In python, write a function \texttt{sort(a)} that relies solely on comparison of the elements in the array (python list) \texttt{a}.
 \item You must implement the above algorithm, in particular its way of manipulating arrays as arrays and not as lists.
+\item Don't implement any of the other sorting algorithms discussed in class.
 \item You are not allowed to use more than linear extra space.
 \item Your implementation should sort the lines of \texttt{stdin} lexicographically. For your convenience, there are some test cases on codeJudge. If your code does not pass the tiny test cases, it is considered wrong. 
 \end{enumerate}
@@ -101,10 +102,11 @@ Most of the time I spent on hunting annoying index mistakes.
 \item Test your code on your own machine using the client in \texttt{Example} in Section 2.1.
 Make sure you've run your sorting algorithm on \texttt{tiny.txt} and \texttt{words3.txt}, but also on some pathological cases: empty input, 1-letter input, 2-letter input, etc.
 Also, sort something really big.
+Here, the \texttt{sort} and \texttt{diff} functionality of your operating system can be a big help in your debugging and testing efforts.
 If everything looks good, give it a try on codeJudge.
 \end{enumerate}
 
-
+\pagebreak
 \subsection{Bells and whistles}
 Implement at least one of the following fancy extensions.
 \begin{enumerate}
@@ -130,7 +132,8 @@ Implement at least one of the following fancy extensions.
       Make sure it's perfect, following the book's conventions for clarity, brevity, indentation, variable names, comments, etc.
   \item The source code for your extension, in a file called {\tt FancyRunsort.*}.
   \item A brief report in PDF, telling us if the code seems to sort, what you've tested it on, and a brief description of your extension.
-  You may use the report skeleton on the next page.
+    You may use the report skeleton on the next page.
+    Include a timestamp and submission number from your successful submission of code to codeJudge.
   \item Any input files that gave your sorting algorithm trouble.
 \end{enumerate}
 
@@ -149,9 +152,10 @@ by Alice Cooper and Bob Marley\sidenote{Complete the report by filling
   \subsection{Tests}
   We have run our sorting algorithm on the following inputs from the book; all were sorted:
   {\tt tiny.txt}, {\tt words3.txt},  $[\ldots]$
+  We uploaded the handed in code at [14-02-2018 13:46] as submission \#886428 on  codeJudge.
   The \texttt{TestTiny} tests on codeJudge were solved correctly.
   Our implementation exceeds the timelimit on codeJudge for the test case \texttt{Test06rnd102400}.
-  On codeJudge, our algorithm is twice as fast on the \texttt{*run*} in comparison to the \texttt{*rnd*} instances.
+  Our algorithm is twice as fast on the \texttt{*run*} in comparison to the \texttt{*rnd*} instances.
 
   We also ran our sorting algorithm on {\tt cannotsort.txt} (included).
   The algorithm fails on this input, but we cannot find the error in our code.\sidenote{Edit or remove this paragraph if you were unable to find an input where your sorting algorithm failed.}
