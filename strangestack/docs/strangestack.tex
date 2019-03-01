@@ -123,8 +123,8 @@ class S:
       \begin{enumerate}
       \item forgets the oldest element.\\
       \item ignores the next push.\\
-      \item   resizes itself so as to make room for more elements. \\ 
-      \item   return the smallest element. \\
+      \item resizes itself so as to make room for more elements. \\ 
+      \item returns the smallest element. \\
  
       \end{enumerate}
 
@@ -207,10 +207,10 @@ class S:
       Now I perform a sequence of $N$ pushes, followed by $N$ pops.
       What is the worst-case (also the worst possible dependency of $K$ on $N$) running time of a single \texttt{pop}?  (Choose the smallest correct estimate.)
       \begin{enumerate}
-        \item $O(\log N)$. \\
-        \item $O(N)$. \\
-        \item $O(N\log N)$. \\
-        \item  $O(1)$. \\
+        \item logarithmic in $N$\\
+        \item linear in $N$\\
+        \item linearithmic in $N$\\
+        \item constant, independent of~$N$
       \end{enumerate} 
       \paragraph*{(f) (1Pt)}
       Assume I initialised an $S$-object with capacity $K$. 
