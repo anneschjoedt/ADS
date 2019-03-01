@@ -1,0 +1,263 @@
+\documentclass{tufte-handout}
+\usepackage{amsmath}
+\usepackage{mathpazo}
+\usepackage{listings}
+
+\usepackage{tikz}
+\usetikzlibrary{chains}
+% Define style for nodes
+\tikzstyle{every node}=[circle, draw, fill=white,
+                        inner sep=0pt, minimum width=9pt,font=\footnotesize\sf]
+\tikzstyle{every picture}= [scale=.5,baseline=(current bounding box.center)]
+\usetikzlibrary{automata}
+\usetikzlibrary{patterns}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\IfFileExists{vc.tex}{\input{vc.tex}}{\newcommand\GITAuthorDate{no git info found}\newcommand\GITAbrHash{-}}  % For version control
+
+\title{Heaps}
+\author{}
+\date{\GITAuthorDate, rev. \GITAbrHash}
+
+\begin{document}
+\maketitle
+
+\section{\textbf{Description}}
+This assignment is an exam question about understanding a given piece of code.
+
+\section{\textbf{Deliverable}}
+\begin{enumerate}
+\item A PDF with your answers.
+    Please add all the names and itu-email addresses of the group members as authors.
+\end{enumerate}
+
+
+\section{\textbf{Question 1}: from exam 180528 Question 2}
+  \begin{figure}
+    %\begin{tikzpicture}[remember picture,overlay] 
+    %  \draw [fill=red!5]
+    %  (current page.south west) rectangle (current page.north east); 
+    %\end{tikzpicture}
+    
+    \begin{lstlisting}[basicstyle=\ttfamily,backgroundcolor=\color{white},
+      frame=single,rulecolor=\color{gray!20},framesep=10pt,
+      linewidth=12cm,numbers= left]
+import edu.princeton.cs.algs4.*;
+
+public class S
+{
+    public int[] a;
+    int sz;
+
+    public S(int cap)
+    { a = new int[cap]; sz = 0;}
+
+    public void push(int item)
+    {
+	if (sz == a.length) shift();
+	a[sz] = item;
+	sz++;
+    }
+    public int pop()
+    {   
+	sz--;
+	return a[sz];
+    }
+
+    private void shift()
+    {
+	int[] tmp = new int[a.length];
+	for (int i = 0; i<a.length - 1; i++) tmp[i] = a[i+1];
+	a = tmp;
+	sz--;
+    }
+}
+    \end{lstlisting}
+    \caption{\label{fig: S-java} Class {\tt S} (for Strange Stack), java version.}
+  \end{figure}
+
+
+  \begin{figure}
+    %\begin{tikzpicture}[remember picture,overlay] 
+    %  \draw [fill=red!5]
+    %  (current page.south west) rectangle (current page.north east); 
+    %\end{tikzpicture}
+    
+    \begin{lstlisting}[basicstyle=\ttfamily,backgroundcolor=\color{white},
+      frame=single,rulecolor=\color{gray!20},framesep=10pt,
+      linewidth=12cm,numbers= left]
+class S:
+    def __init__(self, capacity):
+        self.a = [0] * capacity;
+        self.sz = 0
+
+    def push(self, item):
+        if self.sz == len(self.a):
+            self.shift()
+        self.a[self.sz] = item
+        self.sz += 1
+
+    def pop(self):
+        self.sz -= 1
+        return self.a[self.sz]
+
+    def shift(self):
+        tmp = [0] * len(self.a)
+        for i in range(0, len(self.a) - 1):
+            tmp[i] = self.a[i+1]
+        self.a = tmp
+        self.sz -= 1
+    \end{lstlisting}
+    \caption{\label{fig: S-python} Class {\tt S} (for Strange Stack), python version.}
+  \end{figure}
+    
+    The next few questions all concern the class defined in fig.~\ref{fig: S-java} and \ref{fig: S-python}.
+
+    \subsection*{(a) 1Pt} Class $S$ is some kind of fixed-capacity stack-like data structure.
+      When an object of class $S$ runs out of capacity, it
+      \begin{enumerate}
+      \item forgets the oldest element.\\
+      \item ignores the next push.\\
+      \item   resizes itself so as to make room for more elements. \\ 
+      \item   return the smallest element. \\
+ 
+      \end{enumerate}
+    \subsection*{(b) 1Pt}
+      What is the result of the following operations?
+      \begin{minipage}{7cm}
+      \begin{verbatim}
+	// java 
+	int N = 4;	
+	S s = new S(N);
+	for (int i = 0; i < N    ; i++) 
+	    s.push(i);
+	for (int i = 0; i < N    ; i++) 
+	    StdOut.print(s.pop());
+	for (int i = 0; i < N + 1; i++) 
+	    s.push(i);
+	for (int i = 0; i < N    ; i++) 
+	    StdOut.print(s.pop());
+      \end{verbatim}
+      \end{minipage}
+%
+      \begin{minipage}{7cm}
+      \begin{verbatim}
+      # python3
+      N = 4;
+      s = S(N)
+      for i in range(N):
+          s.push(i)
+      for i in range(N):
+          stdio.write(s.pop())
+      for i in range(N + 1): 
+          s.push(i)
+      for i in range(N): 
+          stdio.write(s.pop())
+      \end{verbatim}
+      \end{minipage}
+       
+      (Ignore whitespace such as blanks or newlines.)
+    \subsection*{(c) 1Pt}      
+      Draw the data structure after the following operations:
+      (This means ``\emph{at the end} of the operations,''
+        not ``\emph{after each} operation,''  so you need to draw only a single picture.
+        Make sure you draw the entire data structure.
+        Make sure to include all instance variables.
+        )
+      \begin{minipage}{5cm}
+      \begin{verbatim}
+      // java
+      S s = new S(3);
+      s.push(5);
+      s.push(6);
+      s.pop();
+      \end{verbatim}
+      \end{minipage}
+%
+      \begin{minipage}{5cm}
+      \begin{verbatim}
+      # python 3
+      s = S(3)
+      s.push(5)
+      s.push(6)
+      s.pop()
+      \end{verbatim}
+      \end{minipage}
+
+      \subsection*{(d) 1Pt}
+      Assume I initialised an $S$-object with capacity $K$. 
+      Now I perform a sequence of $N$ pushes.
+      What is the worst-case (also the worst possible dependency of $K$ on $N$) running time of a single \texttt{push}?  (Choose the smallest correct estimate.)
+      \begin{enumerate}
+        \item $O(\log N)$. \\
+        \item $O(N)$. \\
+        \item $O(N\log N)$. \\
+        \item  $O(1)$. \\
+      \end{enumerate} 
+
+      \subsection*{(e) 1Pt}
+      Assume I initialised an $S$-object with capacity $K$. 
+      Now I perform a sequence of $N$ pushes, followed by $N$ pops.
+      What is the worst-case (also the worst possible dependency of $K$ on $N$) running time of a single \texttt{pop}?  (Choose the smallest correct estimate.)
+      \begin{enumerate}
+        \item $O(\log N)$. \\
+        \item $O(N)$. \\
+        \item $O(N\log N)$. \\
+        \item  $O(1)$. \\
+      \end{enumerate} 
+      \subsection*{(f) 1Pt}
+      Assume I initialised an $S$-object with capacity $K$. 
+      Now I perform $N$ pushes and $N+1$ pops, where $N\leq K$.
+      What happens? \textbf{The java and the python version behave differently, indicate what you answer to}
+      \begin{enumerate}
+	\item At least one of the pushes or pops takes linear time. \\
+	\item The program aborts with a runtime error or exception. \\
+	\item The underlying array resizes to $\frac{1}{4}$ of its size. \\
+	\item The smallest element is returned. \\
+      \end{enumerate} 
+
+      \subsection*{(g) 1Pt}
+     Add a method with the following signature that checks if the data structure is empty.
+
+      \begin{minipage}{6cm}
+      \begin{verbatim}
+      // java
+      public boolean isEmpty()
+      \end{verbatim}
+      \end{minipage}
+%
+      \begin{minipage}{6cm}
+      \begin{verbatim}
+      # python 3
+      def is_empty(self):
+      \end{verbatim}
+      \end{minipage}
+
+    \emph{Don't change any other methods in class {\tt S} and don't introduce new instance variables to {\tt S}.}
+     
+      \subsection*{(h) 1Pt}
+      Extend class {\tt S} with the following signature that removes the element that was first pushed (i.e., the `oldest' element).
+      The method returns nothing.
+    \emph{Don't change any other methods in class {\tt S} and don't introduce new instance variables to {\tt S}.}
+
+    \medskip
+      \begin{minipage}{6cm}
+      \begin{verbatim}
+      // java
+      public void remove_oldest()
+      \end{verbatim}
+      \end{minipage}
+%
+      \begin{minipage}{6cm}
+      \begin{verbatim}
+      # python 3
+      def remove_oldest(self):
+      \end{verbatim}
+      \end{minipage}
+
+      \subsection*{(i) 2Pt}
+      Explain how to change the implementation of the data structure so that push and pop take constant time in the worst case.
+      The functionality must be unchanged.
+      If $K$ is the capacity, then the constructor should take $O(K)$ time and the data structure should take $O(K)$ space.
+
+\end{document}
