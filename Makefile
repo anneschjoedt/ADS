@@ -13,6 +13,7 @@ ALLPDF=congress/docs/congress.pdf \
 	disjoint_sets_2/docs/disjoint_sets_2.pdf\
 	hashpipe/docs/hashpipe.pdf\
 	heaps/docs/heaps.pdf\
+	asymptotic/docs/asymptotic.pdf\
 	disjoint_sets_4/docs/disjoint_sets_4.pdf\
 	catenablequeue/docs/catenablequeue.pdf
 
