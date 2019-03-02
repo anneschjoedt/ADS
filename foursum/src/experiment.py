@@ -61,12 +61,17 @@ def runExp(producer,foursum,tableFile='', Nlist=[100], extra=[]):
         FastCmp[N]=[]
     for i in range(4):
       for N in Nlist:
-        start = timer()
+        #start = timer()
         print( tableFile, tuple( list(producer) + [str(N)] +extra) )
-        ps = subprocess.Popen(tuple( list(producer) + [str(N)] + extra), stdout=subprocess.PIPE,stderr=subprocess.DEVNULL)
-        output = subprocess.check_output(foursum, stdin=ps.stdout,stderr=subprocess.DEVNULL)
-        #output = subprocess.check_output(('cat'), stdin=ps.stdout)
+        #start = timer()
+        ##ps = subprocess.Popen(tuple( list(producer) + [str(N)] + extra), stdout=subprocess.PIPE,stderr=subprocess.DEVNULL)
+        ps = subprocess.Popen(tuple( list(producer) + [str(N)] + extra), stdout=open('tmp.in','w'),stderr=subprocess.DEVNULL)
         ps.wait()
+        start = timer()
+        # output = subprocess.check_output(foursum, stdin=ps.stdout,stderr=subprocess.DEVNULL)
+        output = subprocess.check_output(foursum, stdin=open('tmp.in','r'),stderr=subprocess.DEVNULL)
+        # output = subprocess.check_output(('cat'), stdin=ps.stdout)
+        # ps.wait()
         end = timer()
         measure = end-start
         FastCmp[N].append(measure)
