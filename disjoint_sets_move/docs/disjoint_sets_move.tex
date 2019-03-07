@@ -3,7 +3,7 @@
 \usepackage{tikz}
 \usepackage{booktabs}
 \input{vc.tex}  % For version control
-\title{Disjoint Sets V -- Isolation}
+\title{Disjoint Sets IV -- Move}
 \author{}
 \date{\GITAuthorDate, rev. \GITAbrHash}
 
@@ -13,9 +13,10 @@
 %\subsection
 
 \begin{abstract}
-  Maintain a family of disjoint sets under repeated union and isolation operations.
+  Maintain a family of disjoint sets under repeated operations that perform  unions of sets or move single elements from one set to another, using a tailor-made variant of a Union--Find data structure.
 
-  This is a data structure design exercise, a  variant of Disjoint Sets IV that uses concepts such as \emph{global rebuilding} and amortisation to maintain a data structure of linear size.
+  To solve this exercise, you need construct a new data structure, instead of just taking a well-known solution off the shelf, as we did for Disjoint Sets II, or slighly extending a well-known solution, as we did for Disjoint Sets III.
+  In other words, this is a data structure \emph{design} question, not an \emph{application} question.
 \end{abstract}
 
 \section{Description}
@@ -28,7 +29,7 @@
     \texttt{u 1 2} & $\{0, 1, 2\},\{3\}$ \\
     \texttt{q 1 2} &\\
     \texttt{q 0 3} &\\
-    \texttt{i 2}   & $\{0, 1\}, \{2\},\{3\}$ \\
+    \texttt{m 2 3}   & $\{0, 1\}, \{2,3\}$ \\
     \texttt{q 0 1} &\\
     \texttt{q 1 2} &
   \end{tabular}
@@ -58,9 +59,10 @@ More precisely, if $s\in S$ and $t\in T$ with $S\neq T$ then $S$ and $T$ are rem
   \item[query]
     The \emph{query} operation takes two arguments $s$ and $t$ and determines if $s$ and $t$ belong to the same set.
     More precisely, if $s\in S$ and $t\in T$ then print \texttt{yes} if $S=T$ and print \texttt{no} if $S\neq T$.
-  \item[isolate]
-    The \emph{isolate} operation takes one argument $s$ and creates the singleton $\{s\}$, removing $s$ from whatever set it may have belonged to before.
-    More precisely, if $s\in S$ then $S$ is removed from the family and the two disjiont sets $\{s\}$ and $S-\{s\}$ are added to the family.
+  \item[move]
+    The \emph{move} operation takes two arguments $s$ and $t$ and moves the element $s$ to the set containing $t$, removing $s$ from whatever set it may have belonged to before.
+    More precisely, if $s\in S$ then $S$ and $t\in T$ with $S\neq T$ then $S$ and $T$ are removed from the family and $S-\{s\}$ (if it is nonempty)  and $T\cup\{s\}$ are added to the family.
+    (If $S= T$ then nothing happens.)
 \end{description}
 Note that these operations maintain invariantly that the sets in the family are disjoint.
 The meaning of the union and query operations is exactly as in \emph{Disjoint Sets I} and \emph{Disjoint Sets II}.
@@ -70,20 +72,18 @@ The meaning of the union and query operations is exactly as in \emph{Disjoint Se
 The input starts with two nonnegative integers $n$, $m$, on the first line.
 We have $0\leq n\leq 10^6$ and $0\leq m\leq 2\cdot 10^6$.
 The integer $n$ is the initial number of singletons.
-The following $m$ lines are of the form ``\texttt{u} $s$ $t$'' (for \emph{union}) or ``\texttt{q} $s$ $t$'' (for \emph{query}) or ``\texttt{i} $s$'' (for \emph{isolate}); you can assume $0\leq s< n$ and $0\leq t< n$.
+The following $m$ lines are of the form ``\texttt{u} $s$ $t$'' (for \emph{union}) or ``\texttt{q} $s$ $t$'' (for \emph{query}) or ``\texttt{m} $s$ $t$'' (for \emph{move}); you can assume $0\leq s< n$ and $0\leq t< n$.
 
 \subsection{Output}
 
-
 For each query, a single line with \texttt{yes} or \texttt{no} as described above.
-
 
 \section{Deliverable}
 
 \begin{description}
   \item[Source code of solution.]
     Solve the problem in Python or Java.
-    Hand this in as \texttt{Ds5.java} or \texttt{ds5.py}.
+    Hand this in as \texttt{Ds4.java} or \texttt{ds4.py}.
 
     There is a set of instances on CodeJudge for you to test.
   \item[Report.]
@@ -92,13 +92,17 @@ For each query, a single line with \texttt{yes} or \texttt{no} as described abov
 \end{description}
 
 This is a difficult exercise because the standard Union--Find data structures you can find in libraries or text books will not solve it.
-(A moment's thought should convince you that the isolation operation can destroy the trees built in in the standard Union--Find data structure, typically when it targets elements that are not leaves in the data structure.)
+(A moment's thought should convince you that the move operation can destroy the trees built in in the standard Union--Find data structure, typically when $s$ is not a leaf in the data structure.)
 On the other hand, the instances are so large that an efficient solution is necessary.
+
+A good idea is needed, and your report should explain it briefly and clearly.
+A figure is probably useful.
+(Draw it by hand and scan it, unless you are really familiar with some good drawing tools.)
 
 Your solution must use at most logarithmic time (in $n$) per update, and total space linear in $n$.
 
 \newpage
-\section{Disjoint Sets V Report}
+\section{Disjoint Sets IV Report}
 
 by Alice Cooper, Bob Marley, and Charlie Brown\sidenote{Complete the report by filling
   in your real name and changing other parts wherever necessary.
@@ -107,7 +111,7 @@ by Alice Cooper, Bob Marley, and Charlie Brown\sidenote{Complete the report by f
   
   We solved this exercise in Python 3 / Java.
 
-  Program \texttt{ds5} passes all tests on the CodeJudge, with a maximum of running time of 4 seconds.
+  Program \texttt{ds4} passes all tests on the CodeJudge, with a maximum of running time of 4 seconds.
 
   \medskip
 
@@ -116,11 +120,11 @@ by Alice Cooper, Bob Marley, and Charlie Brown\sidenote{Complete the report by f
   (As in [SW, sec. 1.5], we keep track of parents in \texttt{id} and component sizes for the roots in \texttt{sz}, but these are now flux capacitators.)
 
   Queries and unions are almost the same as in the standard solution, except for the extra step of subverting the flux capacitator.
-  For $\emph{isolate}(s)$, a new copy of the node is inserted in the particle reference queue, and the nunstuck is popped.
+  For $\emph{move}(s,t)$, a new copy of the node is inserted in the particle reference queue, and the nunstuck is popped.
 
   \medskip
   
-  For instance, just before the isolation operation in the sample input, the data structure looks like this:
+  For instance, just before the move operation in the sample input, the data structure looks like this:
 
  \begin{figure}[h]
    \begin{minipage}{3cm}
@@ -146,7 +150,7 @@ by Alice Cooper, Bob Marley, and Charlie Brown\sidenote{Complete the report by f
    \end{minipage}
  \end{figure}
 
-  After the isolation, element $2$ is again just a reference to the inverse flux capacitator, and its old tachyon node remains untouched.
+  After the move, element $2$ is again just a reference to the inverse flux capacitator, and its old tachyon node remains untouched.
 
  \begin{figure}[h]
    \begin{minipage}{3cm}
@@ -177,5 +181,4 @@ by Alice Cooper, Bob Marley, and Charlie Brown\sidenote{Complete the report by f
   We claim without proof
   \footnote{If you want, you can give a proof. This is not mandatory.}
   that the running time is logarithmic in $n$ in the worst case per update and the data structure requires linear space in  $n$ space.
-
 \end{document}
