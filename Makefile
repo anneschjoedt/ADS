@@ -11,6 +11,7 @@ ALLPDF=congress/docs/congress.pdf \
 	foursum/docs/report-foursum.pdf\
 	disjoint_sets_1/docs/disjoint_sets_1.pdf\
 	disjoint_sets_2/docs/disjoint_sets_2.pdf\
+	disjoint_sets_move/docs/disjoint_sets_move.pdf\
 	hashpipe/docs/hashpipe.pdf\
 	heaps/docs/heaps.pdf\
 	strangestack/docs/strangestack.pdf\
