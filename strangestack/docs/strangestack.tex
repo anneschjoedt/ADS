@@ -196,10 +196,10 @@ class S:
       Now I perform a sequence of $N$ pushes.
       What is the worst-case (also the worst possible dependency of $K$ on $N$) running time of a single \texttt{push}?  (Choose the smallest correct estimate.)
       \begin{enumerate}
-        \item $O(\log N)$. \\
-        \item $O(N)$. \\
-        \item $O(N\log N)$. \\
-        \item  $O(1)$. \\
+        \item $O(\log N)$, i.e., logarithmic in $N$\\[-.1ex]
+        \item $O(N)$, i.e., linear in $N$\\[-.1ex]
+        \item $O(N\log N)$, i.e., linearithmic in $N$\\[-.1ex]
+        \item $O(1)$, i.e., constant, independent of~$N$\\[-.1ex]
       \end{enumerate} 
 
       \paragraph*{(e) (1Pt)}
@@ -207,10 +207,10 @@ class S:
       Now I perform a sequence of $N$ pushes, followed by $N$ pops.
       What is the worst-case (also the worst possible dependency of $K$ on $N$) running time of a single \texttt{pop}?  (Choose the smallest correct estimate.)
       \begin{enumerate}
-        \item logarithmic in $N$\\
-        \item linear in $N$\\
-        \item linearithmic in $N$\\
-        \item constant, independent of~$N$
+        \item $O(\log N)$, i.e., logarithmic in $N$\\[-.1ex]
+        \item $O(N)$, i.e., linear in $N$\\[-.1ex]
+        \item $O(N\log N)$, i.e., linearithmic in $N$\\[-.1ex]
+        \item $O(1)$, i.e., constant, independent of~$N$\\[-.1ex]
       \end{enumerate} 
       % \paragraph*{(f) (1Pt)}
       % Assume I initialised an $S$-object with capacity $K$. 
@@ -223,7 +223,7 @@ class S:
       %   \item The value 0 is returned. \\
       % \end{enumerate} 
 
-      \paragraph*{(f) ((1Pt))}
+      \paragraph*{(f) (1Pt)}
      Add a method with the following signature that checks if the data structure is empty.
 
       \begin{minipage}{6cm}
