@@ -61,7 +61,7 @@ More precisely, if $s\in S$ and $t\in T$ with $S\neq T$ then $S$ and $T$ are rem
     More precisely, if $s\in S$ and $t\in T$ then print \texttt{yes} if $S=T$ and print \texttt{no} if $S\neq T$.
   \item[move]
     The \emph{move} operation takes two arguments $s$ and $t$ and moves the element $s$ to the set containing $t$, removing $s$ from whatever set it may have belonged to before.
-    More precisely, if $s\in S$ then $S$ and $t\in T$ with $S\neq T$ then $S$ and $T$ are removed from the family and $S-\{s\}$ (if it is nonempty)  and $T\cup\{s\}$ are added to the family.
+    More precisely, if $s\in S$ and $t\in T$ with $S\neq T$ then $S$ and $T$ are removed from the family and $S-\{s\}$ (if it is nonempty)  and $T\cup\{s\}$ are added to the family.
     (If $S= T$ then nothing happens.)
 \end{description}
 Note that these operations maintain invariantly that the sets in the family are disjoint.
