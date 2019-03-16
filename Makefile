@@ -17,7 +17,6 @@ ALLPDF=congress/docs/congress.pdf \
 	heaps/docs/heaps.pdf\
 	strangestack/docs/strangestack.pdf\
 	asymptotic/docs/asymptotic.pdf\
-	disjoint_sets_4/docs/disjoint_sets_4.pdf\
 	catenablequeue/docs/catenablequeue.pdf
 
 all: $(ALLPDF)
