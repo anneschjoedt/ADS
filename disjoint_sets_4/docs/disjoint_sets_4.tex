@@ -2,10 +2,10 @@
 \usepackage{microtype}
 \usepackage{tikz}
 \usepackage{booktabs}
-%\input{vc.tex}  % For version control
-\title{Disjoint Sets IV -- Isolation}
+\input{vc.tex}  % For version control
+\title{Disjoint Sets -- Union Find Isolate}
 \author{}
-%\date{\GITAuthorDate, rev. \GITAbrHash}
+\date{\GITAuthorDate, rev. \GITAbrHash}
 
 \begin{document}
 \maketitle
@@ -15,7 +15,8 @@
 \begin{abstract}
   Maintain a family of disjoint sets under repeated union and isolation operations, using a tailor-made variant of a Union--Find data structure.
 
-  To solve this exercise, you need construct a new data structure, instead of just taking a well-known solution off the shelf, as we did for Disjoint Sets II, or slighly extending a well-known solution, as we did for Disjoint Sets III.
+  To solve this exercise, you need construct a new data structure, instead of just taking a well-known solution off the shelf, as we did for the other Disjoint Sets assignments.
+  % II, or slighly extending a well-known solution, as we did for Disjoint Sets III.
   In other words, this is a data structure \emph{design} question, not an \emph{application} question.
 \end{abstract}
 
@@ -84,7 +85,7 @@ For each query, a single line with \texttt{yes} or \texttt{no} as described abov
 \begin{description}
   \item[Source code of solution.]
     Solve the problem in Python or Java.
-    Hand this in as \texttt{Ds4.java} or \texttt{ds4.py}.
+    Hand this in as \texttt{DsIsolate.java} or \texttt{ds\_isolate.py}.
 
     There is a set of instances on CodeJudge for you to test.
   \item[Report.]
@@ -103,7 +104,7 @@ A figure is probably useful.
 My solution takes logarithmic time per update.
 
 \newpage
-\section{Disjoint Sets IV Report}
+\section{Disjoint Sets Isolate Report}
 
 by Alice Cooper, Bob Marley, and Charlie Brown\sidenote{Complete the report by filling
   in your real name and changing other parts wherever necessary.
@@ -112,7 +113,7 @@ by Alice Cooper, Bob Marley, and Charlie Brown\sidenote{Complete the report by f
   
   We solved this exercise in Python 3 / Java.
 
-  Program \texttt{ds4} passes all tests on the CodeJudge, with a maximum of running time of 4 seconds.
+  Program \texttt{dsIsolate} passes all tests on the CodeJudge, with a maximum of running time of 4 seconds.
 
   \medskip
 
