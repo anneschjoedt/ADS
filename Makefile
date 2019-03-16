@@ -12,6 +12,7 @@ ALLPDF=congress/docs/congress.pdf \
 	disjoint_sets_1/docs/disjoint_sets_1.pdf\
 	disjoint_sets_2/docs/disjoint_sets_2.pdf\
 	disjoint_sets_move/docs/disjoint_sets_move.pdf\
+	disjoint_sets_isolate/docs/disjoint_sets_isolate.pdf\
 	hashpipe/docs/hashpipe.pdf\
 	heaps/docs/heaps.pdf\
 	strangestack/docs/strangestack.pdf\
