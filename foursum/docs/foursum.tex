@@ -109,8 +109,8 @@ The report and all programs should be submitted on LearnIT as a zip-archive.
     \begin{lstlisting}
       time java Simple < ../data/ints-200-2.txt
     \end{lstlisting}
-    Because of the setup on codeJudge, our programs have debugging output on \texttt{stderr}, and there is the need to ignore this when collecting experimental results into a file. 
-    The following is an example how this could look like (note that the trailing \verb+\+ continues the command on the next line) (this script can be found in the \href{https://bitbucket.org/rikj/bads-labs/src/master/foursum/src/simpleExp.sh}{[git repository]}:
+    Our programs may produce debugging output on \texttt{stderr}, which we need to ignore when collecting experimental results into a file. 
+    The following is an example for what this could look like (note that the trailing \verb+\+ continues the command on the next line) (this script can be found in the \href{https://bitbucket.org/rikj/bads-labs/src/master/foursum/src/simpleExp.sh}{[git repository]}:
     \lstinputlisting{../src/simpleExp.sh}
 
     More advanced solutions (maybe in other languages) could compute averages, or even draw the plots for you.
@@ -119,13 +119,12 @@ The report and all programs should be submitted on LearnIT as a zip-archive.
 
 \section{Learning outcomes}
 
-Besides some important secondary skills (input/output, exposing yourself to an unfamiliar programming language, basic experimentation, drawing graphs, computing averages), the main points of this exercise are
+Besides some important secondary skills (input/output, exposing yourself to an unfamiliar programming language, basic experimentation, drawing graphs, computing averages), the main points of this exercise are:
 \begin{itemize}
   \item It does \emph{not} make a big difference which language you use.
   \item It \emph{does} make a big difference which algorithm you use.
   \item The slowest observed performance is well characterised by the predicted worst-case running time.
   \item The fastest observed performance contains very little information about general behaviour.
 \end{itemize}
-
 
 \end{document}
