@@ -16,12 +16,12 @@ basicstyle=\footnotesize\ttfamily%
 \IfFileExists{vc.tex}{\input{vc.tex}}{\newcommand\GITAuthorDate{no git info found}\newcommand\GITAbrHash{-}}  % For version control
 
 \title{Four-Sum}
-\author{Thore Husfeldt and Riko Jacob}
+\author{Holger Dell, Thore Husfeldt, and Riko Jacob}
 \date{\GITAuthorDate, rev. \GITAbrHash}
 \begin{document}
 \maketitle
 \begin{abstract}
-  Implement a very simple algorithm in two different languages, run some experiments.
+  Implement a very simple algorithm in two different languages. Run some experiments.
   Improve the algorithm.
 \end{abstract}
 
@@ -32,26 +32,27 @@ basicstyle=\footnotesize\ttfamily%
 
 \begin{description}
   \item[Exhaustive search.]
-The simplest solution is to use exhaustive search using four nested for loops.
-Go ahead and implement that in the language that you’re comfortable in, Python or Java.
+The simplest solution is to use exhaustive search with four nested for loops.
+Go ahead and implement it in the language that you're comfortable with, Python or Java.
 There is a code skeleton called \texttt{sol/Simple.java} or \texttt{sol/simple.py} that you must use.
 The program expects a list of $N$ integers on standard input, following the number $N$ itself.
 The directory \texttt{data} contains several of such lists for various $N$.
 
 The program must write \texttt{True} to standard output if it finds a solution, and \texttt{False} otherwise;
 your program may write other output to standard error (\texttt{stderr}).
-This is the basis of the tests on codeJudge, and all your programs must at least pass all of \texttt{TestsTiny} and \texttt{TestsSmall}.
+%This is the basis of the tests on codeJudge, and all your programs must at least pass all of \texttt{TestsTiny} and \texttt{TestsSmall}.
 
-Make it work; and determine the running time on your machine on the input files. 
+Make it work and test your program for correctness.
+Then determine the running time on your machine on the input files. 
 There are a handful of inputs for each size.
 Report the fastest observed time, the slowest, and the average.
-(Try to be half-way serious about this--- \emph{e.g.}, restart the computer before the experiment, so as to make sure no spurious processes are running in the background, don’t have a World of Warcraft-server or Bitcoin mining programme running at the same time.)
-You probably won’t be able to handle the larger inputs---don’t report experiments that take more than a few minutes.
+(Try to be half-way serious about this---\emph{e.g.}, restart the computer before the experiment, so as to make sure no spurious processes are running in the background, don't have a World of Warcraft-server or Bitcoin mining programme running at the same time.)
+You probably won't be able to handle the larger inputs---don't report experiments that take more than a few minutes.
 Plot the result using both a standard and a log-log plot.
 
-\item[\emph{Optional} Exhaustive search in a different language.]
+\item[\emph{Optional:} Exhaustive search in a different language.]
   Do the same as above, but in the other language.
-  This may involve installing compiler or a run-time environment, figuring out where the semicolons or brackets go (or don’t go) and other annoyances.
+  This may involve installing compiler or a run-time environment (find the installation instructions here: \url{https://github.itu.dk/pages/algorithms/ads-2020-notes/preparation/software/}), figuring out where the semicolons or brackets go (or don't go) and other annoyances.
   Compare the running times of the two implementations of exhaustive search in the different languages.
   This is the only task you are to implement in both languages.
 
@@ -62,40 +63,42 @@ Plot the result using both a standard and a log-log plot.
   Call it \texttt{Faster.java}  or \texttt{faster.py}.
   Redo the experiments and report them.
 
-  \emph{Optional} There is a cute, simple, and very satisfying way to solve the problem in time proportional to $N^2\operatorname{lg} N$ instead.
+  \emph{Optional:} There is a cute, simple, and very satisfying way to solve the problem in time proportional to $N^2\operatorname{lg} N$ instead.
 If you can figure that trick out, implement it and hand in that code instead.
 \end{description}
 
 \section{Deliverable}
 \begin{description}
-  \item[Programs] Implementation of ``Exhaustive search'' and ``Faster'' in your standard programming language (java or python3).
-  \item[Optional Program 1] Implementation of ``Exhaustive search''  in the other programming language (python2 is just as good).
-  \item[Optional Program 2] Implementation of your self designed even faster algorithm.
+  \item[Programs.] Implementation of ``Exhaustive search'' and ``Faster'' in your standard programming language (Java or Python~3).
+  \item[Optional Program 1.] Implementation of ``Exhaustive search''  in the other programming language (Python~2 is just as good).
+  \item[Optional Program 2.] Implementation of your self designed even faster algorithm.
   \item[Report.]
-    Hand in a very brief report as a PDF, preferably by just finishing the skeleton in \texttt{report-foursum.tex} in the git-repository or zip-archive.
+    Hand in a \textbf{very brief} report as a PDF, preferably by just finishing the skeleton in \texttt{report-foursum.tex} in the zip-archive.
     Please add all the names and itu-email addresses of the group members as authors in the PDF of the report.
 \end{description}
-All programs should be uploaded to codeJudge and submitted on learnit as a zip-archive.
-Please refer to  one successful submission on codeJudge (by time and id) in your report.
+The report and all programs should be submitted on LearnIT as a zip-archive.
 
 \section{Tips and comments}
 
 \begin{description}
-  \item[Java types.] The integers in the input files are very large, and will not fit into the Java datatypes \texttt{int} or \texttt{Integer}.
+  \item[Java types.] The integers in the input files are very large, and will not fit into the Java data types \texttt{int} or \texttt{Integer}.
     Use \texttt{Long} instead.
     Do not worry about overflow.
-  \item[Python dialect.] You can use Python~2 (which may be already installed on your computer) or Python~3 (remember that the library of the course is written in python3).
+  \item[Python dialect.] You can use Python~2 (which may be already installed on your computer) or Python~3 (remember that the library of the course is written in Python~3).
   \item[Course libraries.]
     In this exercise (and this exercise \emph{only}) you are \emph{not} required to use the course libraries, say for input/output.
     This is because it is too much overhead to ask students in language $x$ to install the libraries for language $y$.
     Therefore, this particular exercise is very bare-bones.
     You are welcome to use the course library if you want to.
   \item[Measuring time.]
-    On a unix system, the \texttt{time} command gives sufficiently good performance estimates, and is better than sitting with a stopwatch.
-    Both Java and Python come with better solutions; the course libraries offer a \texttt{Stopwatch} class, and Python has a handy \texttt{time} module. You are free to use either. 
-    On some modern Java systems, the compiler performs very funky optimisations behind your back, giving wildy divergent measurements for the same code on the same machine.
-    You can handle that by running time code a few times before measuring it.
-    It’s a black art.
+    On a Unix system, the \texttt{time} command gives sufficiently good performance estimates, and is better than sitting with a stopwatch.
+    Both Java and Python come with better solutions; the course libraries offer a \texttt{Stopwatch} class, and the Python module \texttt{time} has a function \texttt{time.process\_time()}. You are free to use either. 
+    (Note: On many modern Java systems, the compiler performs very funky
+    optimisations behind your back, giving wildly divergent measurements for
+    the same code on the same machine.  You can handle that by running time
+    code a few times before measuring it.  It's a black art.  If you're
+    curious, see this note by Peter Sestoft for proper benchmarking in Java:
+    \url{https://www.itu.dk/people/sestoft/papers/benchmarking.pdf}.)
   \item[Experiment design.]
     If you like doing repetitive work, you  can run your experiments individually by starting dozens of processes from the command line (or, worse, an IDE) and writing the results into a spreadsheet to compute averages.
     However, such an approach quickly becomes both tedius and error-prone.
@@ -111,7 +114,7 @@ Please refer to  one successful submission on codeJudge (by time and id) in your
     \lstinputlisting{../src/simpleExp.sh}
 
     More advanced solutions (maybe in other languages) could compute averages, or even draw the plots for you.
-    One example (that turned out to be somewhat more complicated) can be found in \texttt{../src/experiment.py}.
+    One example (that turned out to be somewhat more complicated) can be found in \href{https://bitbucket.org/rikj/bads-labs/src/master/foursum/src/simpleExp.sh}{\texttt{experiment.py}}.
 \end{description}
 
 \section{Learning outcomes}
