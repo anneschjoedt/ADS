@@ -1,8 +1,9 @@
-\documentclass{tufte-handout}
+\documentclass[nobib]{tufte-handout}
 \usepackage{amsmath}
 \usepackage[utf8]{inputenc}
 \usepackage{mathpazo}
 \usepackage{graphicx}
+\usepackage{enumitem}
 \usepackage{listings}
 \lstset{%
 language=bash,%
@@ -10,47 +11,45 @@ showstringspaces=false,%
 basicstyle=\footnotesize\ttfamily%
 }
 
-\usepackage{tikz}
-\usetikzlibrary{chains}
-\usetikzlibrary{decorations}
 \IfFileExists{vc.tex}{\input{vc.tex}}{\newcommand\GITAuthorDate{no git info found}\newcommand\GITAbrHash{-}}  % For version control
 
 \title{Four-Sum}
 \author{Holger Dell, Thore Husfeldt, and Riko Jacob}
-\date{\GITAuthorDate, rev. \GITAbrHash}
+\date{\GITAuthorDate, rev.~\GITAbrHash}
 \begin{document}
 \maketitle
 \begin{abstract}
-  Implement two algorithms for the same problem.
+  Easy part: Implement two algorithms for the same problem.
   Optionally in two different programming languages.
   Run some experiments.
+  Important part: Reflect about and analyse the experimental results in a report. If results don't make sense, improve and re-do the experiment.
 \end{abstract}
 
 
- \section{Description}
+\section{Description}
 
- In the Four-Sum problem, your program is given a list of $N$ (long) integers and it is supposed to detect if there are four of them that sum to $0$.
- For example, the input could be the following file:
- \begin{lstlisting}[language=None]
- 10
- -3
- 4
- 2
- 10
- -7
- -12
- 9
- 13
- 0
- -1
- \end{lstlisting}
- The first line is the number $N=10$, then the $N$ (long) integers follow.
- Because $(-3)+10+(-7)+0 = 0$ holds, the correct output is:
- \begin{lstlisting}
- True
- \end{lstlisting}
+In the Four-Sum problem, your program is given a list of $N$ (long) integers and it is supposed to detect if there are four of them that sum to zero.%
+\sidenote{For example, the input could be the following file:
 
- Further sample inputs as well as code skeletons can be found at \url{https://bitbucket.org/rikj/bads-labs/downloads/foursum.zip}.
+\texttt{%
+10\\
+-3\\
+4\\
+2\\
+10\\
+-7\\
+-12\\
+9\\
+13\\
+0\\
+-1}\\[\baselineskip]
+
+The first line is the number $N=10$, then the $N$ (long) integers follow.
+Because $(-3)+10+(-7)+0 = 0$ holds, the correct output is:\\
+\texttt{True}\\[\baselineskip]
+
+Further sample inputs as well as code skeletons can be found at \url{https://bitbucket.org/rikj/bads-labs/downloads/foursum.zip}.
+}
 
 \begin{description}
   \item[Exhaustive search.]
@@ -65,11 +64,11 @@ your program may write other output to standard error (\texttt{stderr}).
 Important: Test your program for correctness by running it on various inputs where you know the output, and cross-check between different implementations!
 
 Next, experimentally determine the running time of the program when it is run on your machine on the input files.
-The .zip archive contains a handful of inputs for each size.
+The \texttt{.zip} archive contains a handful of inputs for each size.
 Report the fastest observed time, the slowest, and the average.
-(Approach this experiment with the mindset of an empirical scientist and make sure it is reproducible---\emph{e.g.}, don't have spurious processes, such as Youtube or a World of Warcraft server, running in the background.)
+(Approach this experiment with the mindset of an empirical scientist and make sure it is reproducible---\emph{e.g.}, don't have spurious processes, such as YouTube or a World of Warcraft server, running in the background.)
 You probably won't be able to handle the largest inputs---please don't report experiments that take more than two minutes.
-Plot the result using both a standard plot and a log-log plot.
+Plot the result using both a standard plot and a log--log plot.\footnote{If you don't know it yet, consult \href{https://en.wikipedia.org/wiki/Log\%E2\%80\%93log\_plot}{[wikipedia]} and the internet to learn about log--log plots.}
 
 \item[\emph{Optional:} Exhaustive search in a different language.]
   Do the same as above, but in the other language.
@@ -79,24 +78,28 @@ Plot the result using both a standard plot and a log-log plot.
 \item[Faster.]
   Use the idea of the fast three-sum algorithm in [SW, Chapter 1.4] \texttt{
   ThreeSumFast} to write a faster algorithm for the four-sum problem.
-  Your running time must be close to cubic time, proportional to $N^3\operatorname{lg} N$.
+  Your running time must be close to cubic time, proportional to $N^3\lg N$.
   Call it \texttt{Faster.java}  or \texttt{faster.py}.
   Redo the experiments and report them.
 
-  \emph{Optional:} There is a cute, simple, and very satisfying way to solve the problem in time proportional to $N^2\operatorname{lg} N$ instead.
+  \emph{Optional:} There is a cute, simple, and very satisfying way to solve the problem in time proportional to $N^2\lg N$ instead.
 If you can figure that trick out, implement it and hand in that code instead.
 \end{description}
 
-\section{Deliverable}
+\section{Deliverables}
 \begin{description}
   \item[Programs.] Implementation of ``Exhaustive search'' and ``Faster'' in your standard programming language (Java or Python~3).
   \item[Optional Program 1.] Implementation of ``Exhaustive search''  in the other programming language (Python~2 is just as good).
   \item[Optional Program 2.] Implementation of your self-designed, even faster algorithm.
   \item[Report.]
-    Hand in a \textbf{very brief (max. 2 pages)} report as a PDF, preferably by just finishing the skeleton in \href{https://bitbucket.org/rikj/bads-labs/src/master/foursum/docs/report-foursum.tex}{report-foursum.tex} in the zip-archive. You can edit LaTeX documents on your machine, or using \href{https://www.overleaf.com/}{overleaf.com}. Pay special attention to the figures, they are important.
-    Please add all the names and itu-email addresses of the group members as authors in the PDF of the report.
+    This is the most important deliverable and most of your effort should be spent on it. The main purpose of the report is for \emph{communication}, so put yourself in the shoes of the reader. Revise and polish your report in several iterations. The report should contain your reflection about the task and the experimental design, and it should contain your analysis and interpretation of the experimental results.
+    The report should be \textbf{very brief (max. 2 pages)} and submitted as a PDF file, preferably by just finishing the skeleton file \href{https://bitbucket.org/rikj/bads-labs/src/master/foursum/docs/report-foursum.tex}{report-foursum.tex} in the zip-archive. You can edit LaTeX documents on your machine, or using \href{https://www.overleaf.com/}{overleaf.com}. Pay special attention to the figures: It is important that you question and self-check the results displayed in the figures---if they don't conform to what you would expect from the theoretical considerations, something about the implementation or the experiment probably went wrong, go back and fix it. If you are unable to fix it, be honest and explain \emph{why} you think that the experimental results don't make sense.
+    Please add all the names as well as the full and correctly spelled itu.dk email addresses of the group members as authors in the PDF of the report.
 \end{description}
 The report and all programs should be submitted on LearnIT as a zip-archive. Note that all necessary code to compile and run your programs, tests, and experiments from the command line must be submitted, and there should be a short \texttt{README.txt} that describes how to run and test your code.
+
+\section{Non-deliverables}
+The \texttt{.zip}-file that you submit \textbf{must not} contain any of the following: \texttt{.zip} files or other archives (such as \texttt{.tar}, \texttt{.7z}, or \texttt{.rar}), compiled files (such as \texttt{.class}, \texttt{.jar}, or \texttt{.pyc}), version control repositories (such as \texttt{.git/} directories), IDE-related files (such as \texttt{.idea/} or \texttt{.vscode/} directories), third-party libraries, or MacOS-specific cruft files (such as \texttt{.DS\_Store} files or \texttt{\_\_MACOSX/} directories).
 
 \section{Tips and comments}
 
@@ -112,7 +115,7 @@ The report and all programs should be submitted on LearnIT as a zip-archive. Not
     You are welcome to use the course library if you want to.
   \item[Measuring time.]
     On a Unix system, the \texttt{time} command gives sufficiently good performance estimates, and is better than sitting with a stopwatch.
-    Both Java and Python come with better solutions; the course libraries offer a \texttt{Stopwatch} class, and the Python module \texttt{time} has a function \texttt{time.process\_time()}. You are free to use either. 
+    Both Java and Python come with better solutions; the course libraries offer a \texttt{Stopwatch} class, and the Python module \texttt{time} has a function \verb|time.process_time()|. You are free to use either.
     (Note: On many modern Java systems, the compiler performs very funky
     optimisations behind your back, giving wildly divergent measurements for
     the same code on the same machine.  You can handle that by running time
@@ -121,7 +124,7 @@ The report and all programs should be submitted on LearnIT as a zip-archive. Not
     \url{https://www.itu.dk/people/sestoft/papers/benchmarking.pdf}.)
   \item[Experiment design.]
     If you like doing repetitive work, you  can run your experiments individually by starting dozens of processes from the command line (or, worse, an IDE) and writing the results into a spreadsheet to compute averages.
-    However, such an approach quickly becomes both tedius and error-prone.
+    However, such an approach quickly becomes both tedious and error-prone.
 
     Instead, construct another program that performs all the experiments for you, and writes the results, including a time stamp of the experiment, into another file.
     There are many schools of thought about how to write that program; you can make it part of your original solution, or you can use a separate programme in a dedicated scripting language.
@@ -130,7 +133,7 @@ The report and all programs should be submitted on LearnIT as a zip-archive. Not
       time java Simple < ../data/ints-200-2.txt
     \end{lstlisting}
     Our programs may produce debugging output on \texttt{stderr}, which we need to ignore when collecting experimental results into a file. 
-    The following is an example for what this could look like (note that the trailing \verb+\+ continues the command on the next line) (this script \texttt{simpleExp.sh} can be found in the .zip archive:
+    The following is an example for what this could look like (note that the trailing \verb+\+ continues the command on the next line). This script \texttt{simpleExp.sh} can also be found in the \texttt{.zip} archive:
     \lstinputlisting{../src/simpleExp.sh}
 
     More advanced solutions (maybe in other languages) could compute averages, or even draw the plots for you.
@@ -140,7 +143,7 @@ The report and all programs should be submitted on LearnIT as a zip-archive. Not
 \section{Learning outcomes}
 
 Besides some important secondary skills (input/output, exposing yourself to an unfamiliar programming language, basic experimentation, drawing graphs, computing averages), the main points of this exercise are:
-\begin{itemize}
+\begin{itemize}[nosep]
   \item It does \emph{not} make a big difference which language you use.
   \item It \emph{does} make a big difference which algorithm you use.
   \item The slowest observed performance is well characterised by the predicted worst-case running time.
